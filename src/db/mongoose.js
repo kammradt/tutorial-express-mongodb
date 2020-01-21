@@ -1,32 +1,44 @@
 const moongose = require('mongoose')
 
-const connectionURL = 'mongodb://127.0.0.1:27017/database-texts' 
+const connectionURL = 'mongodb://127.0.0.1:27017/database-texts'
 
 moongose.connect(connectionURL, {
-    useNewUrlParser: true,
-    useCreateIndex: true // Being sure to create our indexes and IDs
+  useNewUrlParser: true,
+  useCreateIndex: true
 })
 
 const Text = moongose.model('Text', {
-    title: {
-        type: String,
-    },
-    text: {
-        type: String
-    },
-    size: {
-        type: Number
+  title: {
+    type: String,
+    trim: true
+  },
+  text: {
+    type: String,
+    require: true,
+    trim: true
+  },
+  size: {
+    type: Number,
+    require: true,
+    validate(value) {
+      if (value < 600) {
+        throw new Error('Size must be bigger than 600!')
+      }
+      if (value > 1000) {
+        throw new Error('Size must be less than 1000!')
+      }
     }
+  }
 })
 
-let myTitle = 'History of super hero!'
-let myText = 'My great text about heroes... Really Long...'
-let sizeOfText = myText.split(' ').length 
+let myTitle = 'History of super hero!    '
+let myText = '     My great text about heroes... Really Long...'
+let sizeOfText = myText.split(' ').length
 
-const saved = new Text({
-    title: myTitle,
-    text: myText,
-    size: sizeOfText
+const willBeSaved = new Text({
+  title: myTitle,
+  text: myText,
+  size: 66666
 })
 
-saved.save()
+willBeSaved.save()

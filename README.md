@@ -58,10 +58,12 @@ const Text = moongose.model('Text', {
         type: String,
     },
     text: {
-        type: String
+        type: String,
+        require: true
     },
     size: {
-        type: Number
+        type: Number,
+        require: true
     }
 })
 
@@ -82,11 +84,40 @@ willBeSaved.save()
 ``` 
 > 1. This URL is created by using the URL from the database (`mongodb://127.0.0.1:27017`) and the name that we want to give to our database (`database-texts`).
 > 2. Just to make sure that our Database will create the correct IDs and Indexes.
-> 3. Now we are **defining** a **Model** called Text. So, every time that we need to save a new Text, it will follow the same pattern and fields. This will be really useful for maintaining and organizing our Database. It is called Model because it is literally a Model that will be followed when we want to create a new **Text**. The appeareance is really similar to a Javascript Object or a C Struct, for example.
+> 3. Now we are **defining** a **Model** called Text. So, every time that we need to save a new Text, it will follow the same pattern and fields. This will be really useful for maintaining and organizing our Database. It is called Model because it is literally a Model that will be followed when we want to create a new **Text**. The appeareance is really similar to a Javascript Object or a C Struct, for example.  
+> As an example of some rules, we are saying that the **text** and **size** are required, but the title is optional.
 > 4. Just creating the variables that we will use to create a Text object and save in our Database. In a real application, problably a user would give this data to us.
 > 5. Creating a Text object using our variables.
 > 6. Now we are calling the method `.save()` on your **Text** object that were created by using our **Model**. Note that this is not a simple object, is a object from the **Text** model.
 
+We actually can improve our model by adding some extra rules to it, like this: 
+```javascript
+const Text = moongose.model('Text', {
+  title: {
+    type: String,
+    trim: true // 1.
+  },
+  text: {
+    type: String,
+    require: true,
+    trim: true // 1.
+  },
+  size: {
+    type: Number,
+    require: true,
+    validate(value) { // 2.
+      if (value < 600) {
+        throw new Error('Size must be bigger than 600!')
+      }
+      if (value > 1000) {
+        throw new Error('Size must be less than 1000!')
+      }
+    }
+  }
+})
+```
+> 1. The trim property will remove extra spaces from our String. For example, if a user is trying to save a title like `'  My title '`, it will actually be saved as `'My Text'`.
+> 2.  `validate()` is a function that we can use to add a custom validation. For example, remember that texts have a size rule? So we can apply it here and guarantee that all our saved texts have the minimum and maximum size. 
 
 
 ### **Updating data**
