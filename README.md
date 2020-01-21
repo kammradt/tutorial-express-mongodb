@@ -37,8 +37,7 @@ We need to be able to `CREATE` information and insert it on our database. After 
 3. Add the content for initial configuration:
 4. To run, just open the terminal and type `node mongodb.js`
 ```javascript
-const mongodb = require('mongodb') // Importing the library to use mongoDB
-const MongoClient = mongodb.MongoClient // We wil use only the MongoClient function
+const { MongoClient, ObjectID } = require('mongodb')// Importing the library to use mongoDB
 
 const connectionURL = 'mongodb://127.0.0.1:27017' // The URL of our running database
 const databaseName = 'api-texts' // The name we want to give to it
@@ -65,3 +64,28 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
   })
 })
 ``` 
+
+### **Updating data**
+Update information is a really important part, and it is really easy to do it. We can do it by using some like this:
+```javascript
+// Using the .updateOne method and saying that you want to update the object with id = ABC
+// After that, you can use $set: {field: 'newValue'} to say what field to update and the new value  
+db.collection(`texts`)
+  .updateOne({_id: new ObjectID("5e26563b96643c21d87e7d08")}, {
+    $set: {
+      title: 'My new title'
+    }
+  })
+})
+```
+Now, if you verify in your Database using compass, or by using code with `.findOne()`, you will see that the `title` changed from `History of super hero!` to `My new title`.
+
+### **Delete data**
+It is also a good ideia know how to remove data if it is not necessary or our user wants to, and we can do it like this:
+
+```javascript
+// In this case, we are deleting one single object by it's ID
+// (Using the ID is a secure way)
+db.collection(`texts`)
+  .deleteOne({ _id: new ObjectID("5e26563b96643c21d87e7d08") })
+```

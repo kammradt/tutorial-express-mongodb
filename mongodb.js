@@ -1,6 +1,4 @@
-const mongodb = require('mongodb') // Importing the library to use mongoDB
-const MongoClient = mongodb.MongoClient // We wil use only the MongoClient function
-
+const { MongoClient, ObjectID } = require('mongodb')
 const connectionURL = 'mongodb://127.0.0.1:27017' // The URL of our running database
 const databaseName = 'api-texts' // The name we want to give to it
 
