@@ -59,11 +59,11 @@ const Text = moongose.model('Text', {
     },
     text: {
         type: String,
-        require: true
+        required: true
     },
     size: {
         type: Number,
-        require: true
+        required: true
     }
 })
 
@@ -99,26 +99,24 @@ const Text = moongose.model('Text', {
   },
   text: {
     type: String,
-    require: true,
+    required: [true, 'Please, insert some Text!'],
     trim: true // 1.
   },
   size: {
     type: Number,
-    require: true,
-    validate(value) { // 2.
-      if (value < 600) {
-        throw new Error('Size must be bigger than 600!')
-      }
-      if (value > 1000) {
-        throw new Error('Size must be less than 1000!')
-      }
-    }
+    required: true,
+    min: [600, 'Size must be equal or bigger than 600'], // 2.
+    max: [1000, 'Size must be equal or less than 1000!']  // 2.
   }
 })
 ```
 > 1. The trim property will remove extra spaces from our String. For example, if a user is trying to save a title like `'  My title '`, it will actually be saved as `'My Text'`.
-> 2.  `validate()` is a function that we can use to add a custom validation. For example, remember that texts have a size rule? So we can apply it here and guarantee that all our saved texts have the minimum and maximum size. 
+> 2.  `min` and `max` will help us control the size. For example, remember that texts have a size rule? So we can apply it here and guarantee that all our saved texts have the minimum and maximum size. 
 
+
+```javascript
+
+```
 
 ### **Updating data**
 Update information is a really important part, and it is really easy to do it. We can do it by using some like this:

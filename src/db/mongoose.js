@@ -14,31 +14,25 @@ const Text = moongose.model('Text', {
   },
   text: {
     type: String,
-    require: true,
+    required: [true, 'Please, insert some Text!'],
     trim: true
   },
   size: {
     type: Number,
-    require: true,
-    validate(value) {
-      if (value < 600) {
-        throw new Error('Size must be bigger than 600!')
-      }
-      if (value > 1000) {
-        throw new Error('Size must be less than 1000!')
-      }
-    }
+    required: true,
+    min: [600, 'Size must be equal or bigger than 600'],
+    max: [1000, 'Size must be equal or less than 1000!'] 
   }
 })
 
-let myTitle = 'History of super hero!    '
-let myText = '     My great text about heroes... Really Long...'
+let myTitle = 'History of super hero!'
+let myText = 'My great text about heroes... Really Long...'
 let sizeOfText = myText.split(' ').length
 
 const willBeSaved = new Text({
   title: myTitle,
   text: myText,
-  size: 66666
+  size: sizeOfText
 })
 
 willBeSaved.save()
