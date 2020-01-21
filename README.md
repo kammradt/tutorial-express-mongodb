@@ -113,10 +113,32 @@ const Text = moongose.model('Text', {
 > 1. The trim property will remove extra spaces from our String. For example, if a user is trying to save a title like `'  My title '`, it will actually be saved as `'My Text'`.
 > 2.  `min` and `max` will help us control the size. For example, remember that texts have a size rule? So we can apply it here and guarantee that all our saved texts have the minimum and maximum size. 
 
+### **Search data**
+After creating some objects in your database, maybe it is a good ideia discover how we can find those values and show to our users, for example. This is a simple task, and can be done as follow:
 
 ```javascript
+willBeSaved.save().then(saved => { // 1.
+  console.log(`We saved this Text: ${saved}`) // 2.
+  let idOfSavedText = saved.id // 3.
+  
+  Text.findById(idOfSavedText).then(found => { // 4.
+    console.log(`The same Text: ${found}`) // 5.
+  }).catch(notFound => {
+    console.log(`Failed to find: ${notFound}`) // 6.
+  })
 
+}).catch(failed => {
+  console.log(`We have erros!: ${failed}`) // 7.
+})
 ```
+> 1. Now we are verifying if our object was successfully saved on our database. If everything was fine, we will receive a `saved` object that is a `Text` object with an `ID` and same fields that we give to it previously. 
+> 2. This will show our `saved` object.
+> 3. Fro this `saved` object, we are getting the ID that the database generated and saving it on `idOfSavedText`.
+> 4. This is the function that does the job of searching a object by id: `Text.findById(...)` and we agora gonna use it to find the object that we saved some seconds ago.
+> 5. If everything was fine, we will receibe the same object as we had before with `saved`.
+> 6. If this was a real app, maybe a user was trying to find an object and search for the wrong id, so it will return an error.
+> 7. This console will be printed if we had some validation errors or other problem.
+
 
 ### **Updating data**
 Update information is a really important part, and it is really easy to do it. We can do it by using some like this:
