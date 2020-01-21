@@ -26,7 +26,7 @@ Now you can verify if your installation was successfully:
 3. Initialize it: `npm init -y`
 4. Install the `mongodb` library so we can use it with code: `npm i mongodb@3.1.10`
 
-## Learnig how to perform CRUD using `MongoDb`
+## Learnig how to perform CRUD using `MongoDB`
 
 CRUD is a acronym for `CREATE`, `READ`, `UPDATE`, `DELETE`. These are the basic operations that we are going to perform on our Database.  
 We need to be able to `CREATE` information and insert it on our database. After that, maybe we want to `READ` it and display to our users. If the users want to change it, we need to be able to `UPDATE` our database information, and if they do not like it, we will need to `DELETE` it.
@@ -88,4 +88,42 @@ It is also a good ideia know how to remove data if it is not necessary or our us
 // (Using the ID is a secure way)
 db.collection(`texts`)
   .deleteOne({ _id: new ObjectID("5e26563b96643c21d87e7d08") })
+```
+
+
+## Using a easier tool to manipulate the Database: Mongoose!
+1. Install the `Mongoose` library so we can use it with code: `npm i mongoose@5.3.16`
+```javascript
+const moongose = require('mongoose')
+
+const connectionURL = 'mongodb://127.0.0.1:27017/database-texts' 
+
+moongose.connect(connectionURL, {
+    useNewUrlParser: true,
+    useCreateIndex: true // Being sure to create our indexes and IDs
+})
+
+const Text = moongose.model('Text', {
+    title: {
+        type: String,
+    },
+    text: {
+        type: String
+    },
+    size: {
+        type: Number
+    }
+})
+
+let myTitle = 'History of super hero!'
+let myText = 'My great text about heroes... Really Long...'
+let sizeOfText = myText.split(' ').length 
+
+const saved = new Text({
+    title: myTitle,
+    text: myText,
+    size: sizeOfText
+})
+
+saved.save()
 ```
