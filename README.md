@@ -1,3 +1,8 @@
+## What is an API?
+
+## what is a Database?
+
+
 ## Installing MongoDB on Ubuntu
 
 1. Go to [this link](https://www.mongodb.com/download-center/community)
@@ -19,12 +24,11 @@ Now you can verify if your installation was successfully:
 4. Click on the `.deb` file to install  
 
 
-
 ## Creating a project
 1. Create a folder for it: `mkdir myProjectName`
 2. CD into it: `cd myProjectName`
 3. Initialize it: `npm init -y`
-4. Install the `mongodb` library so we can use it with code: `npm i mongodb@3.1.10`
+4. Install the `mongodb` library so we can use it with code: `npm i mongoose@5.3.16`
 
 ## Learnig how to perform CRUD using `MongoDB`
 
@@ -36,73 +40,19 @@ We need to be able to `CREATE` information and insert it on our database. After 
 2. Create a file named `mongodb.js` for first tests and configuration
 3. Add the content for initial configuration:
 4. To run, just open the terminal and type `node mongodb.js`
-```javascript
-const { MongoClient, ObjectID } = require('mongodb')// Importing the library to use mongoDB
 
-const connectionURL = 'mongodb://127.0.0.1:27017' // The URL of our running database
-const databaseName = 'api-texts' // The name we want to give to it
-
-// Calling the connect function using the URL
-MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) => {
-  if (error) {
-    // Just verify for error (could be a wrong URL, for example)
-    return console.log('Unable to connect to database!')
-  }
-  console.log('Connected to database!')
-
-  // Create our database using the name and a variable so we can use it
-  const db = client.db(databaseName)
-
-
-  let myTitle = 'History of super hero!'
-  let myText = 'My great text about heroes... Really Long... '
-  let sizeOfText = myText.split(' ').length 
-  db.collection(`texts`).insertOne({
-    title: myTitle,
-    text: myText,
-    size: sizeOfText
-  })
-})
-``` 
-
-### **Updating data**
-Update information is a really important part, and it is really easy to do it. We can do it by using some like this:
-```javascript
-// Using the .updateOne method and saying that you want to update the object with id = ABC
-// After that, you can use $set: {field: 'newValue'} to say what field to update and the new value  
-db.collection(`texts`)
-  .updateOne({_id: new ObjectID("5e26563b96643c21d87e7d08")}, {
-    $set: {
-      title: 'My new title'
-    }
-  })
-})
-```
-Now, if you verify in your Database using compass, or by using code with `.findOne()`, you will see that the `title` changed from `History of super hero!` to `My new title`.
-
-### **Delete data**
-It is also a good ideia know how to remove data if it is not necessary or our user wants to, and we can do it like this:
-
-```javascript
-// In this case, we are deleting one single object by it's ID
-// (Using the ID is a secure way)
-db.collection(`texts`)
-  .deleteOne({ _id: new ObjectID("5e26563b96643c21d87e7d08") })
-```
-
-
-## Using a easier tool to manipulate the Database: Mongoose!
-1. Install the `Mongoose` library so we can use it with code: `npm i mongoose@5.3.16`
 ```javascript
 const moongose = require('mongoose')
 
+// 1.
 const connectionURL = 'mongodb://127.0.0.1:27017/database-texts' 
 
 moongose.connect(connectionURL, {
     useNewUrlParser: true,
-    useCreateIndex: true // Being sure to create our indexes and IDs
+    useCreateIndex: true // 2.
 })
 
+// 3.
 const Text = moongose.model('Text', {
     title: {
         type: String,
@@ -115,15 +65,40 @@ const Text = moongose.model('Text', {
     }
 })
 
+// 4.
 let myTitle = 'History of super hero!'
 let myText = 'My great text about heroes... Really Long...'
 let sizeOfText = myText.split(' ').length 
 
-const saved = new Text({
+// 5.
+const willBeSaved = new Text({
     title: myTitle,
     text: myText,
     size: sizeOfText
 })
 
-saved.save()
+// 6.
+willBeSaved.save()
+``` 
+> 1. This URL is created by using the URL from the database (`mongodb://127.0.0.1:27017`) and the name that we want to give to our database (`database-texts`).
+> 2. Just to make sure that our Database will create the correct IDs and Indexes.
+> 3. Now we are **defining** a **Model** called Text. So, every time that we need to save a new Text, it will follow the same pattern and fields. This will be really useful for maintaining and organizing our Database. It is called Model because it is literally a Model that will be followed when we want to create a new **Text**. The appeareance is really similar to a Javascript Object or a C Struct, for example.
+> 4. Just creating the variables that we will use to create a Text object and save in our Database. In a real application, problably a user would give this data to us.
+> 5. Creating a Text object using our variables.
+> 6. Now we are calling the method `.save()` on your **Text** object that were created by using our **Model**. Note that this is not a simple object, is a object from the **Text** model.
+
+
+
+### **Updating data**
+Update information is a really important part, and it is really easy to do it. We can do it by using some like this:
+```javascript
+
 ```
+Now, if you verify in your Database using compass, or by using code with `.findOne()`, you will see that the `title` changed from `History of super hero!` to `My new title`.
+
+### **Delete data**
+It is also a good ideia know how to remove data if it is not necessary or our user wants to, and we can do it like this:
+
+```javascript
+```
+
