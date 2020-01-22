@@ -36,10 +36,15 @@ const willBeSaved = new Text({
 })
 
 willBeSaved.save().then(saved => {
-  console.log(saved) // 1.
+  // 1. 
 
-  saved.title = 'My new Title'
-  saved.save().then(updated => {
-    console.log(updated.title)
+  // 2.
+  Text.findByIdAndDelete(saved.id).then(deleted => {
+    console.log(`I deleted this: ${deleted.id}`) 
+
+    Text.findById(deleted.id).then(willBeNull => {
+      console.log(willBeNull) // 3.
+    })
+
   })
 })

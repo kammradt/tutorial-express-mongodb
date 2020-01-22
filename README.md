@@ -182,5 +182,26 @@ Now, if you verify in your Database using compass, or by using code with `.findB
 It is also a good ideia know how to remove data if it is not necessary or our user wants to, and we can do it like this:
 
 ```javascript
-```
+const willBeSaved = new Text({
+  title: myTitle,
+  text: myText,
+  size: sizeOfText
+})
 
+willBeSaved.save().then(saved => {
+  // 1. 
+
+  // 2.
+  Text.findByIdAndDelete(saved.id).then(deleted => {
+    console.log(`I deleted this: ${deleted.id}`) 
+
+    Text.findById(deleted.id).then(willBeNull => {
+      console.log(willBeNull) // 3.
+    })
+
+  })
+})
+```
+> 1. We are first saving a new object in our Database named `saved`. Lets imagine that after some time, the users wants to delete it. Then, we will do the code below 2.
+> 2. We will call the method `findByIdAndDelete(id)` and this method will delete the object and also return a copy of it. (But the object is deleted!!! It is just a copy to display a last information of it)
+> 3. If we try to find the object that we just deleted by it's `ID`, it will return a `null`, because it was previously deleted.
