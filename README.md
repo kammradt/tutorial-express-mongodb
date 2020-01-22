@@ -1,7 +1,21 @@
-## What is an API?
 
-## what is a Database?
+## :pencil: **Summary**
 
+| Introduction                          | Database                                          | 
+|-                                      | -                                                 |
+| [What is an API?]()                   | [Creating a project]()                            |
+| [What is a Database?]()               | [Learning how to perform CRUD with Mongoose]()    |
+| [Installing MongoDB on Ubuntu]()      | [What is **CRUD**?]()                             |
+| [Installing a client for Mongo]()     | :arrow_forward: [**C**reating the basic file]()                   |
+|                                       | :arrow_forward: [Adding rules to Text model]()                    |
+|                                       | :arrow_forward: [**R**eading data]()                              |
+|                                       | :arrow_forward: [**U**pdating data]()                             |
+|                                       | :arrow_forward: [**D**elete data]()                               |
+
+
+## What is an API? 
+
+## What is a Database?
 
 ## Installing MongoDB on Ubuntu
 
@@ -30,11 +44,13 @@ Now you can verify if your installation was successfully:
 3. Initialize it: `npm init -y`
 4. Install the `mongodb` library so we can use it with code: `npm i mongoose@5.3.16`
 
-## Learnig how to perform CRUD using `MongoDB`
+## Learning how to perform CRUD with Mongoose
 
+### **What is CRUD**?
 CRUD is a acronym for `CREATE`, `READ`, `UPDATE`, `DELETE`. These are the basic operations that we are going to perform on our Database.  
 We need to be able to `CREATE` information and insert it on our database. After that, maybe we want to `READ` it and display to our users. If the users want to change it, we need to be able to `UPDATE` our database information, and if they do not like it, we will need to `DELETE` it.
 
+### **Creating the basic file**
 1. Open the project with a code editor:  
 `cd myProjectName && code .`
 2. Create a file named `mongodb.js` for first tests and configuration
@@ -88,8 +104,10 @@ willBeSaved.save()
 > As an example of some rules, we are saying that the **text** and **size** are required, but the title is optional.
 > 4. Just creating the variables that we will use to create a Text object and save in our Database. In a real application, problably a user would give this data to us.
 > 5. Creating a Text object using our variables.
-> 6. Now we are calling the method `.save()` on your **Text** object that were created by using our **Model**. Note that this is not a simple object, is a object from the **Text** model.
+> 6. Now we are calling the method `.save()` on your **Text** object that were created by using our **Model**. Note that this is not a simple object, is a object from the **Text** model.  
+  
 
+### **Adding rules to Text model**
 We actually can improve our model by adding some extra rules to it, like this: 
 ```javascript
 const Text = moongose.model('Text', {
@@ -113,7 +131,7 @@ const Text = moongose.model('Text', {
 > 1. The trim property will remove extra spaces from our String. For example, if a user is trying to save a title like `'  My title '`, it will actually be saved as `'My Text'`.
 > 2.  `min` and `max` will help us control the size. For example, remember that texts have a size rule? So we can apply it here and guarantee that all our saved texts have the minimum and maximum size. 
 
-### **Search data**
+### **Reading data**
 After creating some objects in your database, maybe it is a good ideia discover how we can find those values and show to our users, for example. This is a simple task, and can be done as follow:
 
 ```javascript
@@ -150,7 +168,6 @@ Text.find().then(texts => { // 1.
 
 })
 ```
-
 > 1. We can use the method `.find()` to get all `Text`s. It will basically find all texts, because we are not using any filters, like .find({title: 'Harry Potter'})
 > 2. This will be an `Array` of `Text`s. Example:  
 `[{id: 1, title: 'abc'}, {id: 2, title: '123'} ...]`
