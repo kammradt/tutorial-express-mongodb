@@ -35,17 +35,11 @@ const willBeSaved = new Text({
   size: sizeOfText
 })
 
+Text.find().then(texts => { // 1.
+  console.log(texts) // 2.
 
-willBeSaved.save().then(saved => {
-  console.log(`We saved this Text: ${saved}`)
-  let idOfSavedText = saved.id
-  
-  Text.findById(idOfSavedText).then(found => {
-    console.log(`The same Text: ${found}`)
-  }).catch(notFound => {
-    console.log(`Failed to find: ${notFound}`)
+  texts.forEach(text => {
+    console.log(text.id) // 3.
   })
-
-}).catch(failed => {
-  console.log(`We have erros!: ${failed}`)
+  
 })

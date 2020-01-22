@@ -139,6 +139,24 @@ willBeSaved.save().then(saved => { // 1.
 > 6. If this was a real app, maybe a user was trying to find an object and search for the wrong id, so it will return an error.
 > 7. This console will be printed if we had some validation errors or other problem.
 
+To find all `Text`s is also really easy, we can do it with this code:
+```javascript
+Text.find().then(texts => { // 1.
+  console.log(texts) // 2.
+
+  texts.forEach(text => {
+    console.log(text.id) // 3.
+  })
+
+})
+```
+
+> 1. We can use the method `.find()` to get all `Text`s. It will basically find all texts, because we are not using any filters, like .find({title: 'Harry Potter'})
+> 2. This will be an `Array` of `Text`s. Example:  
+`[{id: 1, title: 'abc'}, {id: 2, title: '123'} ...]`
+> 3. We will print just the id of each `Text` that we found in our database.
+
+
 
 ### **Updating data**
 Update information is a really important part, and it is really easy to do it. We can do it by using some like this:
