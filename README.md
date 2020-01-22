@@ -159,11 +159,24 @@ Text.find().then(texts => { // 1.
 
 
 ### **Updating data**
-Update information is a really important part, and it is really easy to do it. We can do it by using some like this:
+Update information is a really important part, and it is really easy to do it. We can do it like this:
 ```javascript
+const willBeSaved = new Text({
+  title: 'A great Title',
+  text: 'Long text...',
+  size: 2
+})
 
+willBeSaved.save().then(saved => {
+  console.log(saved.title) // 1.
+
+  saved.title = 'My new Title'
+  saved.save().then(updated => {
+    console.log(updated.title) // 2.
+  })
+})
 ```
-Now, if you verify in your Database using compass, or by using code with `.findOne()`, you will see that the `title` changed from `History of super hero!` to `My new title`.
+Now, if you verify in your Database using compass, or by using code with `.findById()`, you will see that the `title` changed from `A great Title` to `My new title`.
 
 ### **Delete data**
 It is also a good ideia know how to remove data if it is not necessary or our user wants to, and we can do it like this:

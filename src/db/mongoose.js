@@ -35,11 +35,11 @@ const willBeSaved = new Text({
   size: sizeOfText
 })
 
-Text.find().then(texts => { // 1.
-  console.log(texts) // 2.
+willBeSaved.save().then(saved => {
+  console.log(saved) // 1.
 
-  texts.forEach(text => {
-    console.log(text.id) // 3.
+  saved.title = 'My new Title'
+  saved.save().then(updated => {
+    console.log(updated.title)
   })
-  
 })
