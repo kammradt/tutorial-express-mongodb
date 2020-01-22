@@ -17,6 +17,7 @@
 A database is a place where you can save information. Simple as that. But the good point is that you can organize the data in a specific way, so everytime you search for information it will be organized in the same way. The same rule applies for when you want to save new information, it will follow all rules that you created.  
 When working with database, we use the term `Table` or `Collection` for a group of information and rules that we want to save.  
 A `Table/Collection` for `Cakes` would look something like this:  
+
 | Cake    |
 | -       | 
 | ID      |
@@ -24,12 +25,14 @@ A `Table/Collection` for `Cakes` would look something like this:
 | Price   |
 | Flavor  |
 
+
 And after creating some information in the `Table Cake`, it would look something like this:  
-| ID | Name | Price | Flavor |
-|-   |-     |-      |-       |
-| 1  | Formigueiro | 40.00 | Black and White Choco |
-| 2  | Banoffe | 70.00 | Banana |
-| 3  | Nega Maluca | 40.00 | Choco |
+
+| ID | Name        | Price | Flavor                 |
+|-   |-            |-      |-                       |
+| 1  | Formigueiro | 40.00 | Black and White Choco  |
+| 2  | Banoffe     | 70.00 | Banana                 |
+| 3  | Nega Maluca | 40.00 | Choco                  |
 
 > When working with javascript, we can imagine a `Cake` being an object liek this: 
 ```javascript
