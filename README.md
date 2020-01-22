@@ -3,8 +3,8 @@
 
 | Introduction                          | Database                                          | 
 |-                                      | -                                                 |
-| [What is an API?]()                   | [Creating a project]()                            |
-| [What is a Database?]()               | [Learning how to perform CRUD with Mongoose]()    |
+| [What is a Database?]()                    | [Creating a project]()                            |
+| [What is an API?]()                   | [Learning how to perform CRUD with Mongoose]()    |
 | [Installing MongoDB on Ubuntu]()      | [What is **CRUD**?]()                             |
 | [Installing a client for Mongo]()     | :arrow_forward: [**C**reating the basic file]()                   |
 |                                       | :arrow_forward: [Adding rules to Text model]()                    |
@@ -13,9 +13,75 @@
 |                                       | :arrow_forward: [**D**elete data]()                               |
 
 
-## What is an API? 
-
 ## What is a Database?
+A database is a place where you can save information. Simple as that. But the good point is that you can organize the data in a specific way, so everytime you search for information it will be organized in the same way. The same rule applies for when you want to save new information, it will follow all rules that you created.  
+When working with database, we use the term `Table` or `Collection` for a group of information and rules that we want to save.  
+A `Table/Collection` for `Cakes` would look something like this:  
+| Cake    |
+| -       | 
+| ID      |
+| Name    |
+| Price   |
+| Flavor  |
+
+And after creating some information in the `Table Cake`, it would look something like this:  
+| ID | Name | Price | Flavor |
+|-   |-     |-      |-       |
+| 1  | Formigueiro | 40.00 | Black and White Choco |
+| 2  | Banoffe | 70.00 | Banana |
+| 3  | Nega Maluca | 40.00 | Choco |
+
+> When working with javascript, we can imagine a `Cake` being an object liek this: 
+```javascript
+let firstCake = {
+  id: 1,
+  name: 'cakeName',
+  price: 20,
+  flavor: 'cakeFlavor'
+}
+```
+> And an example of reading information from the Table `Cake` should be something like this:  
+```javascript
+let listOfCakes = myDatabase.Cake.All() 
+// This is just a fake example, we will learn how to interact with a database later
+
+console.log(listOfCakes)
+// Will print somenthing similar to
+[
+  {
+    id: 1,
+    name: 'Best cake ever',
+    price: 20,
+    flavor: 'choco'
+  },
+  {
+    id: 2,
+    name: 'A nice cake',
+    price: 30,
+    flavor: 'apple'
+  } 
+]
+```
+
+
+## What is an API? 
+API is the acronym for Application Programming Interface, which means that it is actually an running application that does something and is available to people to use.  
+An easy example of a well know API is the [GithubAPI](https://developer.github.com/v3/): we can use it to `GET` a information about a user's repositories with a simple `call:`
+```javascript
+const axios = require('axios')
+
+let user = 'kammradt'
+axios.get(`https://api.github.com/users/${user}/repos`).then(result => { // 1.
+    console.log(result) // 2.
+})
+```
+> 1. We are using a `.get()` method to literally get information from some source. This source of information is the API URL. 
+> 2. The information displayed will be a list of repositories from a specific user. 
+
+It is really commom for people or bussiness to create an API and give it to the clients/users to use, because in this way, we can control what we display and show.
+*(It is not secure and not a good idea at all give clients or users access to our server or databases)*  
+Of course APIs can also be developed to manipulate data, such as creating new information with a `POST` call, or even delete information with a `DELETE` one.  
+Our plan is to create an API to manipulate some `Texts`, such as `Creating`, `Listing all`, `Updating` and `Deleting`.
 
 ## Installing MongoDB on Ubuntu
 
