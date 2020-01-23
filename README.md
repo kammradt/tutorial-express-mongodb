@@ -436,4 +436,34 @@ app.listen(port, () => {
 > 3. We will display and receive a lot of `json`s during the creation of the API. So, just to make sure everything works well, we will tell express to use it. 
 
 ### Creating a real GET route
-Now, we will create a route that will display all our `Text`s. This will be really easy
+Now, we will create a route that will display all our `Text`s. This will be really easy:
+```javascript
+app.get('/texts', (request, response) => { // 1.
+
+  Text.find().then(result => { // 2.
+    return response.send({ text: result}) // 3.
+  })
+
+})
+```
+> 1. We changed the route to math the name of the model that we are interacting, so things make a little more sense. IN this case, we will use:  
+`GET "localhost:3000/texts"`
+> 2. We are using the method `.find()` to get all `Text`s in the database. It will return a list of it.
+> 3. We are sending back to the person that went to that endpoints a object like this:  
+> ```javascript
+> {
+>   text: [
+>     {
+>       id: 1,
+>       title: 'Title 1',
+>       text: 'Text 1...'
+>     },
+>     {
+>       id: 2,
+>       title: 'Title 2',
+>       text: 'Text 2...'
+>     } ...
+>   ]
+> }
+> ```
+

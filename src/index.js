@@ -7,11 +7,12 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 
-app.get('/', (request, response) => { 
-  let responseMessage = {
-    message: 'Hello!'
-  }
-  return response.send(responseMessage) 
+app.get('/texts', (request, response) => { // 1.
+
+  Text.find().then(result => { // 2.
+    return response.send({ text: result}) // 3.
+  })
+
 })
 
 app.listen(port, () => {
