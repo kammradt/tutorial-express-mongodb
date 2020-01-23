@@ -3,7 +3,7 @@
 
 | Introduction                                                     | Database                                                                                     | API               |
 |-                                                                 | -                                                                                            | -                 |
-| [What is a Database?](#what-is-a-database)                       | [Creating a project](#creating-a-project)                                                    | [newLink]()       |
+| [What is a Database?](#what-is-a-database)                       | [Creating a project](#creating-a-project)                                                    | [Creating the basic API file](#Creating-the-basic-API-file)       |
 | [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | [newLink]()       |
 | [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [What is **CRUD**?](#what-is-crud)                                                           | [newLink]()       |
 | [Installing a client for Mongo](#installing-a-client-for-mongo)  | :arrow_forward: [**C**reating the basic file](#creating-the-basic-file)                      | [newLink]()       |
@@ -291,3 +291,44 @@ willBeSaved.save().then(saved => {
 > 1. We are first saving a new object in our Database named `saved`. Lets imagine that after some time, the users wants to delete it. Then, we will do the code below 2.
 > 2. We will call the method `findByIdAndDelete(id)` and this method will delete the object and also return a copy of it. (But the object is deleted!!! It is just a copy to display a last information of it)
 > 3. If we try to find the object that we just deleted by it's `ID`, it will return a `null`, because it was previously deleted.
+
+## Creating the basic API file
+
+Lets start by installing our Back-end framework that will be used. We used `Vue.js` to create beautiful pages, and we will use `Express` to create our server.
+1. Run `npm install express` in the terminal inside our project folder.
+2. Run `npm install nodemon` in the terminal inside our project folder.
+
+> 1. Express is a javascript library that help us creating APIs similars to what we have seen on Github, for example.  
+Using it, will be possible to do something like:
+`GET www.site.com.br/api/getTexts` and receive a list of ours Texts from the Database.
+> 2. Nodemon is just a small library to help us during the process of development. Remember that when we were using `Vue.js`, file changes were reloaded automatically to the page? This will do the same but for our API.
+
+
+Now, we are going to start our real project. Let's create a file that will work as the start of our API.  
+We can create an `index.js` file in our `src` folder.
+> src/index.js
+```javascript
+const express  = require('express')
+
+const app = express()
+const port = process.env.PORT || 3000
+
+app.listen(port, () => {
+    console.log(`Server is ON and running on port ${port}`)
+})
+```
+
+
+Now, we can configure our `package.json`.
+
+```javascript
+  "scripts": {
+    "start": "node src/index.js", // 2.
+    "dev": "nodemon src/index.js" // 1.
+  },
+```
+
+> 1. `npm run dev` will start a development server.
+> 2. `npm run start` will run a real server that will onyl be used after we finish our app.
+
+So, just to verify if everything is ok, we can run `npm run dev`.
