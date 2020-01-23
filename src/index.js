@@ -7,12 +7,9 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 
-app.get('/texts', (request, response) => { // 1.
-
-  Text.find().then(result => { // 2.
-    return response.send({ text: result}) // 3.
-  })
-
+app.get('/texts', async (request, response) => {
+  let listOfTexts = await Text.find()
+  return response.send({ text: listOfTexts })
 })
 
 app.listen(port, () => {

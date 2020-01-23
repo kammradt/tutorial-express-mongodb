@@ -7,8 +7,8 @@
 | [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | [Creating routes](#Creating-routes)       |
 | [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [What is **CRUD**?](#what-is-crud)                                                           | [Creating a GET route](#Creating-a-GET-route)       |
 | [Installing a client for Mongo](#installing-a-client-for-mongo)  | :arrow_forward: [**C**reating the basic file](#creating-the-basic-file)                      | [Organizing our files and project](#Organizing-our-files-and-project)       |
-|                                                                  | :arrow_forward: [Adding rules to Text model](#adding-rules-to-text-model)                    | [newLink]()       |
-|                                                                  | :arrow_forward: [**R**eading data](#reading-data)                                            | [newLink]()       |
+|                                                                  | :arrow_forward: [Adding rules to Text model](#adding-rules-to-text-model)                    | [Creating a real GET route](#Creating-a-real-GET-route)       |
+|                                                                  | :arrow_forward: [**R**eading data](#reading-data)                                            | [Refactoring the code](#Refactoring-the-code)       |
 |                                                                  | :arrow_forward: [**U**pdating data](#updating-data)                                          | [newLink]()       |
 |                                                                  | :arrow_forward: [**D**elete data](#delete-data)                                              | [newLink]()       |
 
@@ -466,4 +466,15 @@ app.get('/texts', (request, response) => { // 1.
 >   ]
 > }
 > ```
+
+#### Refactoring the code
+We can actually make this code look a little bit more easy and clena, by using what we learned before with `async/await`. Lets make it:
+```javascript
+app.get('/texts', async (request, response) => { // 1.
+  let listOfTexts = await Text.find() // 2.
+  return response.send({ text: listOfTexts })
+})
+```
+> 1. Now, we added the `async` keyword in front the function that will be called when a user enters in the `/texts` endpoint. After that, we are able to use `await` instead of calling `.then()` eeru time.
+> 2. Now, we can remove the `.then()` and just `await` for the database finish finding all `Text`s. After that, we just send it back as we did before.
 
