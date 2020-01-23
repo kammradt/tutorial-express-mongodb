@@ -6,7 +6,7 @@
 | [What is a Database?](#what-is-a-database)                       | [Creating a project](#creating-a-project)                                                    | [Creating the basic API file](#Creating-the-basic-API-file)       |
 | [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | [Creating routes](#Creating-routes)       |
 | [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [What is **CRUD**?](#what-is-crud)                                                           | [Creating a GET route](#Creating-a-GET-route)       |
-| [Installing a client for Mongo](#installing-a-client-for-mongo)  | :arrow_forward: [**C**reating the basic file](#creating-the-basic-file)                      | [newLink]()       |
+| [Installing a client for Mongo](#installing-a-client-for-mongo)  | :arrow_forward: [**C**reating the basic file](#creating-the-basic-file)                      | [Organizing our files and project](#Organizing-our-files-and-project)       |
 |                                                                  | :arrow_forward: [Adding rules to Text model](#adding-rules-to-text-model)                    | [newLink]()       |
 |                                                                  | :arrow_forward: [**R**eading data](#reading-data)                                            | [newLink]()       |
 |                                                                  | :arrow_forward: [**U**pdating data](#updating-data)                                          | [newLink]()       |
@@ -366,3 +366,44 @@ app.listen(port, () => {
 `localhost:3000`
 > 2. We are creating a reponse object to send when this route is accessed. In ths case, will be a simple object with a `message` inside it, the value `'Hello!'`. In the future, it will be probably our `Text`s and more complex stuff.
 > 3. In the end, we will send our variable to the user with method `.send()` with the wanted value inside.
+
+### Organizing our files and project
+Lets start building a real structure. We can start by creating a folder inside `db` that will hold all our `models`. At this moment, we will have only one, that is our `Text`.
+So, we will have:
+> src/db/models/text.js
+```javascript
+const moongose = require('mongoose')
+
+const Text = moongose.model('Text', {
+    title: {
+        type: String,
+        trim: true
+    },
+    text: {
+        type: String,
+        required: [true, 'Please, insert some Text!'],
+        trim: true
+    },
+    size: {
+        type: Number,
+        required: true,
+        min: [600, 'Size must be equal or bigger than 600'],
+        max: [1000, 'Size must be equal or less than 1000!']
+    }
+})
+
+module.exports = Text
+```
+
+And now our `src/db/mongoose.js` will be a little bit more clean, like this:
+```javascript
+const moongose = require('mongoose')
+
+const connectionURL = 'mongodb://127.0.0.1:27017/database-texts'
+
+moongose.connect(connectionURL, {
+  useNewUrlParser: true,
+  useCreateIndex: true
+})
+```
+> The ideia is that, will file will only be the connection, and if we want to create other `models`, we should do it inside the `models` folder. 
