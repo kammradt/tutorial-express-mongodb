@@ -407,3 +407,33 @@ moongose.connect(connectionURL, {
 })
 ```
 > The ideia is that, will file will only be the connection, and if we want to create other `models`, we should do it inside the `models` folder. 
+
+We can also organize our `index.js` file:
+
+```javascript
+const express = require('express')
+const Text = require('./db/models/text') // 1.
+require('./db/mongoose') // 2.
+
+const app = express()
+const port = process.env.PORT || 3000
+
+app.use(express.json()) // 3.
+
+app.get('/', (request, response) => { 
+  let responseMessage = {
+    message: 'Hello!'
+  }
+  return response.send(responseMessage) 
+})
+
+app.listen(port, () => {
+  console.log(`Server is ON and running on port ${port}`)
+})
+``` 
+> 1. First, we are importing our `Text` model that we created with mongoose and is in the `text.js` file.
+> 2. We are also importing the Database file `mongoose`, but we are not saving it in any variable. We are just importing it to make sure the connection inside it is created. Remeber that we will manipulate our database only using our `models`, like the `Text` one that we imported.
+> 3. We will display and receive a lot of `json`s during the creation of the API. So, just to make sure everything works well, we will tell express to use it. 
+
+### Creating a real GET route
+Now, we will create a route that will display all our `Text`s. This will be really easy
