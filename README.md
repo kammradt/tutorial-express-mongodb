@@ -1,16 +1,16 @@
 
 ## :pencil: **Summary**
 
-| Introduction                          | Database                                          | 
-|-                                      | -                                                 |
-| [What is a Database?]()                    | [Creating a project]()                            |
-| [What is an API?]()                   | [Learning how to perform CRUD with Mongoose]()    |
-| [Installing MongoDB on Ubuntu]()      | [What is **CRUD**?]()                             |
-| [Installing a client for Mongo]()     | :arrow_forward: [**C**reating the basic file]()                   |
-|                                       | :arrow_forward: [Adding rules to Text model]()                    |
-|                                       | :arrow_forward: [**R**eading data]()                              |
-|                                       | :arrow_forward: [**U**pdating data]()                             |
-|                                       | :arrow_forward: [**D**elete data]()                               |
+| Introduction                          | Database                                          | API |
+|-                                      | -                                                 | -   |
+| [What is a Database?]()                    | [Creating a project]()                       |       abcde       |
+| [What is an API?]()                   | [Learning how to perform CRUD with Mongoose]()    |       abcde       |
+| [Installing MongoDB on Ubuntu]()      | [What is **CRUD**?]()                             |       abcde       |
+| [Installing a client for Mongo]()     | :arrow_forward: [**C**reating the basic file]()   |       abcde       |
+|                                       | :arrow_forward: [Adding rules to Text model]()    |       abcde       |
+|                                       | :arrow_forward: [**R**eading data]()              |       abcde       |
+|                                       | :arrow_forward: [**U**pdating data]()             |       abcde       |
+|                                       | :arrow_forward: [**D**elete data]()               |       abcde       |
 
 
 ## What is a Database?
@@ -34,7 +34,7 @@ And after creating some information in the `Table Cake`, it would look something
 | 2  | Banoffe     | 70.00 | Banana                 |
 | 3  | Nega Maluca | 40.00 | Choco                  |
 
-> When working with javascript, we can imagine a `Cake` being an object liek this: 
+> When working with javascript, we can imagine a `Cake` being an object like this: 
 ```javascript
 let firstCake = {
   id: 1,
