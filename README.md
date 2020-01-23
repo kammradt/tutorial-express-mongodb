@@ -4,8 +4,8 @@
 | Introduction                                                     | Database                                                                                     | API               |
 |-                                                                 | -                                                                                            | -                 |
 | [What is a Database?](#what-is-a-database)                       | [Creating a project](#creating-a-project)                                                    | [Creating the basic API file](#Creating-the-basic-API-file)       |
-| [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | [newLink]()       |
-| [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [What is **CRUD**?](#what-is-crud)                                                           | [newLink]()       |
+| [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | [Creating routes](#Creating-routes)       |
+| [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [What is **CRUD**?](#what-is-crud)                                                           | [Creating a GET route](#Creating-a-GET-route)       |
 | [Installing a client for Mongo](#installing-a-client-for-mongo)  | :arrow_forward: [**C**reating the basic file](#creating-the-basic-file)                      | [newLink]()       |
 |                                                                  | :arrow_forward: [Adding rules to Text model](#adding-rules-to-text-model)                    | [newLink]()       |
 |                                                                  | :arrow_forward: [**R**eading data](#reading-data)                                            | [newLink]()       |
@@ -289,7 +289,7 @@ willBeSaved.save().then(saved => {
 })
 ```
 > 1. We are first saving a new object in our Database named `saved`. Lets imagine that after some time, the users wants to delete it. Then, we will do the code below 2.
-> 2. We will call the method `findByIdAndDelete(id)` and this method will delete the object and also return a copy of it. (But the object is deleted!!! It is just a copy to display a last information of it)
+> 2. We will call the method `findByIdAndDelete(id)` and this method will delete the object and also return a copy of it. (But the object is deleted!!! It is just a copy to display a last information of it).
 > 3. If we try to find the object that we just deleted by it's `ID`, it will return a `null`, because it was previously deleted.
 
 ## Creating the basic API file
@@ -308,15 +308,20 @@ Now, we are going to start our real project. Let's create a file that will work 
 We can create an `index.js` file in our `src` folder.
 > src/index.js
 ```javascript
-const express  = require('express')
+const express  = require('express') // 1.
 
-const app = express()
-const port = process.env.PORT || 3000
+const app = express() // 2.
+const port = process.env.PORT || 3000 // 3.
 
-app.listen(port, () => {
+app.listen(port, () => { // 4.
     console.log(`Server is ON and running on port ${port}`)
 })
 ```
+
+> 1. Importing our Express library.
+> 2. Creating a variable for our app by using the express library.
+> 3. We will use the default port on our real server (`80`) or in development it will `3000`.
+> 4. We will tell the app to use the port (`80` or `3000`), and if everything is OK, we will receive a message in the console.
 
 
 Now, we can configure our `package.json`.
@@ -332,3 +337,32 @@ Now, we can configure our `package.json`.
 > 2. `npm run start` will run a real server that will onyl be used after we finish our app.
 
 So, just to verify if everything is ok, we can run `npm run dev`.
+
+## Creating routes
+Now, we can start building some routes to make available. But first, what is a route?  
+We can call a route every "link" in our API that does something. So, for example:  
+This is a route to get information about kammradt's repositories: "`https://api.github.com/users/kammradt/repos`".  
+It is really common to call it and `endpoint` too.  
+
+
+### Creating a GET route
+Lets start by creating a fake route just for testing propouses. Using our `index.js` file:
+```javascript
+... // After imports and etc... 
+
+app.get('/', (request, response) => {   // 1.
+    let responseMessage = {
+      message: 'Hello!' // 2.
+    }
+    return response.send(responseMessage) // 3.
+})
+
+app.listen(port, () => {
+    console.log(`Server is ON and running on port ${port}`)
+})
+```
+
+> 1. we are registering a route using our `app` variable. The route will be using the `GET` verb. The first parametrs is the `path` to this route, the literal `URL`. In this case, will be at the root, the first one, `'/'`. In this case, we will access it by:  
+`localhost:3000`
+> 2. We are creating a reponse object to send when this route is accessed. In ths case, will be a simple object with a `message` inside it, the value `'Hello!'`. In the future, it will be probably our `Text`s and more complex stuff.
+> 3. In the end, we will send our variable to the user with method `.send()` with the wanted value inside.
