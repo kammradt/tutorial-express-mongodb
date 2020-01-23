@@ -1,16 +1,16 @@
 
 ## :pencil: **Summary**
 
-| Introduction                          | Database                                          | API |
-|-                                      | -                                                 | -   |
-| [What is a Database?]()                    | [Creating a project]()                       |       abcde       |
-| [What is an API?]()                   | [Learning how to perform CRUD with Mongoose]()    |       abcde       |
-| [Installing MongoDB on Ubuntu]()      | [What is **CRUD**?]()                             |       abcde       |
-| [Installing a client for Mongo]()     | :arrow_forward: [**C**reating the basic file]()   |       abcde       |
-|                                       | :arrow_forward: [Adding rules to Text model]()    |       abcde       |
-|                                       | :arrow_forward: [**R**eading data]()              |       abcde       |
-|                                       | :arrow_forward: [**U**pdating data]()             |       abcde       |
-|                                       | :arrow_forward: [**D**elete data]()               |       abcde       |
+| Introduction                                                     | Database                                                                                     | API               |
+|-                                                                 | -                                                                                            | -                 |
+| [What is a Database?](#what-is-a-database)                       | [Creating a project](#creating-a-project)                                                    | [newLink]()       |
+| [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | [newLink]()       |
+| [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [What is **CRUD**?](#what-is-crud)                                                           | [newLink]()       |
+| [Installing a client for Mongo](#installing-a-client-for-mongo)  | :arrow_forward: [**C**reating the basic file](#creating-the-basic-file)                      | [newLink]()       |
+|                                                                  | :arrow_forward: [Adding rules to Text model](#adding-rules-to-text-model)                    | [newLink]()       |
+|                                                                  | :arrow_forward: [**R**eading data](#reading-data)                                            | [newLink]()       |
+|                                                                  | :arrow_forward: [**U**pdating data](#updating-data)                                          | [newLink]()       |
+|                                                                  | :arrow_forward: [**D**elete data](#delete-data)                                              | [newLink]()       |
 
 
 ## What is a Database?
