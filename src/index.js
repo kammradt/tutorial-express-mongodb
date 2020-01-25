@@ -23,7 +23,7 @@ app.get('/texts/:id', async (request, response) => {
     let foundText = await Text.findById(id)
     return response.send(foundText)
   } catch (error) {
-    return response.status(404).send({ error: `There are no Text with the given id: ${id}.` })
+    return response.status(404).send({ error: `There are no Text with the given id: ${id}` })
   }
 })
 
@@ -34,10 +34,13 @@ app.put('/texts/:id', async (request, response) => {
     let foundText = await Text.findById(id)
     foundText.title = newTextInfo.title
     foundText.text = newTextInfo.text
+    foundText.size = newTextInfo.text.split(' ').length
+
     let updatedText = await foundText.save()
     return response.send(updatedText)
+    
   } catch (error) {
-    return response.status(404).send({ error: `There are no Text with the given id: ${id}, so we are not able to update it.` })
+    return response.status(404).send({ error: `An error occurred: ${error}` })
   }
 })
 
