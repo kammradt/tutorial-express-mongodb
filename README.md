@@ -10,7 +10,7 @@
 |                                                                  | [Adding rules to Text model](#adding-rules-to-text-model)                    | [Creating a real GET route](#Creating-a-real-GET-route)       |
 |                                                                  | [**R**eading data](#reading-data)                                            | [Refactoring the code](#Refactoring-the-code)       |
 |                                                                  | [**U**pdating data](#updating-data)                                          | [Route to GET one Text](#Route-to-GET-one-Text)       |
-|                                                                  | [**D**elete data](#delete-data)                                              | [Route to CREATE a Text](#Route-to-CREATE-a-Text)       |
+|                                                                  | [**D**elete data](#delete-data)                                              | [Route to UPDATE a Text](#Route-to-UPDATE-a-Text)       |
 
 
 ## What is a Database?
@@ -524,10 +524,12 @@ app.put('/texts/:id', async (request, response) => { // 1.
     let foundText = await Text.findById(id) // 4.
     foundText.title = newTextInfo.title // 5. 
     foundText.text = newTextInfo.text   // 5.
+    foundText.size = newTextInfo.text.split(' ').length // 5.
+
     let updatedText = await foundText.save() // 6.
     return response.send(updatedText) // 7.
   } catch (error) { 
-    return response.status(404).send({ error: `There are no Text with the given id: ${id}, so we are not able to update it.` }) // 8.
+    return response.status(404).send({ error: `An error occurred: ${error}` }) // 8.
   }
 })
 ```
