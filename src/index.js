@@ -27,6 +27,20 @@ app.get('/texts/:id', async (request, response) => {
   }
 })
 
+app.put('/texts/:id', async (request, response) => {
+  let id = request.params.id
+  let newTextInfo = request.body
+  try {
+    let foundText = await Text.findById(id)
+    foundText.title = newTextInfo.title
+    foundText.text = newTextInfo.text
+    let updatedText = await foundText.save()
+    return response.send(updatedText)
+  } catch (error) {
+    return response.status(404).send({ error: `There are no Text with the given id: ${id}, so we are not able to update it.` })
+  }
+})
+
 app.listen(port, () => {
   console.log(`Server is ON and running on port ${port}`)
 })

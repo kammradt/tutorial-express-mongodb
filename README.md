@@ -512,3 +512,40 @@ app.get('/texts/:id', async (request, response) => { // 1.
 > 4. If everything was OK, we will send back the `Text` that we found in our database to the person that made the request. 
 > 5. Its possible to occurr an `error`, like request having an `ID` that does not exist in our database. So, if this happens we will do something.
 > 6. It is a good idea to advise who send the request, with a message and the correct status. 
+
+## Route to UPDATE a Text
+It is a good idea have a route to edit information about a previously created Text. Maybe during the creation, the client send some wong information or something else. We can do it by the following:
+
+```javascript
+app.put('/texts/:id', async (request, response) => { // 1.
+  let id = request.params.id // 2.
+  let newTextInfo = request.body // 3.
+  try {
+    let foundText = await Text.findById(id) // 4.
+    foundText.title = newTextInfo.title // 5. 
+    foundText.text = newTextInfo.text   // 5.
+    let updatedText = await foundText.save() // 6.
+    return response.send(updatedText) // 7.
+  } catch (error) { 
+    return response.status(404).send({ error: `There are no Text with the given id: ${id}, so we are not able to update it.` }) // 8.
+  }
+})
+```
+
+> 1. When we want to update information, we use the PUT verb. 
+> 2. We are getting the `ID` from the URL.
+> 3. We ARE getting the request body with the new information that will be used to update the `Text` with the `ID` from the url. The body will be really similar to our `Text` model:
+> ```javascript
+> PUT: `http://localhost:3000/texts/12h312nj`
+>
+> BODY:
+> {
+>   title: 'My new title',
+>   text: 'A really long text ...'
+> }
+> ```
+> 4. We will try to find the `Text` that the request wants to update. This part is really similar to the [GET Route](#Route-to-GET-one-Text)
+> 5. We are now setting the new information in the `Text` that we found. This is really similar to what we learned in [this part: Updating data](#Updating-data)
+> 6. Now that our `Text` object has the new information, we will save it. 
+> 7. We are now returning the updated version of the `Text`, so who requested knows everything was fine and the `Text` was updated.
+> 8. If some error occurred, we will send a message saying it with the right status. 
