@@ -6,11 +6,11 @@
 | [What is a Database?](#what-is-a-database)                       | [Creating a project](#creating-a-project)                                                    | [Creating the basic API file](#Creating-the-basic-API-file)       |
 | [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | [Creating routes](#Creating-routes)       |
 | [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [What is **CRUD**?](#what-is-crud)                                                           | [Creating a GET route](#Creating-a-GET-route)       |
-| [Installing a client for Mongo](#installing-a-client-for-mongo)  | :arrow_forward: [**C**reating the basic file](#creating-the-basic-file)                      | [Organizing our files and project](#Organizing-our-files-and-project)       |
-|                                                                  | :arrow_forward: [Adding rules to Text model](#adding-rules-to-text-model)                    | [Creating a real GET route](#Creating-a-real-GET-route)       |
-|                                                                  | :arrow_forward: [**R**eading data](#reading-data)                                            | [Refactoring the code](#Refactoring-the-code)       |
-|                                                                  | :arrow_forward: [**U**pdating data](#updating-data)                                          | [Route to GET one Text](#Route-to-GET-one-Text)       |
-|                                                                  | :arrow_forward: [**D**elete data](#delete-data)                                              | [Route to CREATE a Text](#Route-to-CREATE-a-Text)       |
+| [Installing a client for Mongo](#installing-a-client-for-mongo)  | [**C**reating the basic file](#creating-the-basic-file)                      | [Organizing our files and project](#Organizing-our-files-and-project)       |
+|                                                                  | [Adding rules to Text model](#adding-rules-to-text-model)                    | [Creating a real GET route](#Creating-a-real-GET-route)       |
+|                                                                  | [**R**eading data](#reading-data)                                            | [Refactoring the code](#Refactoring-the-code)       |
+|                                                                  | [**U**pdating data](#updating-data)                                          | [Route to GET one Text](#Route-to-GET-one-Text)       |
+|                                                                  | [**D**elete data](#delete-data)                                              | [Route to CREATE a Text](#Route-to-CREATE-a-Text)       |
 
 
 ## What is a Database?
