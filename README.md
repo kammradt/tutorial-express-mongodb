@@ -362,7 +362,7 @@ app.listen(port, () => {
 })
 ```
 
-> 1. we are registering a route using our `app` variable. The route will be using the `GET` verb. The first parametrs is the `path` to this route, the literal `URL`. In this case, will be at the root, the first one, `'/'`. In this case, we will access it by:  
+> 1. we are registering a route using our `app` variable. The route will be using the `GET` verb. The first parameters is the `path` to this route, the literal `URL`. In this case, will be at the root, the first one, `'/'`. In this case, we will access it by:  
 `localhost:3000`
 > 2. We are creating a reponse object to send when this route is accessed. In ths case, will be a simple object with a `message` inside it, the value `'Hello!'`. In the future, it will be probably our `Text`s and more complex stuff.
 > 3. In the end, we will send our variable to the user with method `.send()` with the wanted value inside.
