@@ -9,8 +9,8 @@
 | [Installing a client for Mongo](#installing-a-client-for-mongo)  | :arrow_forward: [**C**reating the basic file](#creating-the-basic-file)                      | [Organizing our files and project](#Organizing-our-files-and-project)       |
 |                                                                  | :arrow_forward: [Adding rules to Text model](#adding-rules-to-text-model)                    | [Creating a real GET route](#Creating-a-real-GET-route)       |
 |                                                                  | :arrow_forward: [**R**eading data](#reading-data)                                            | [Refactoring the code](#Refactoring-the-code)       |
-|                                                                  | :arrow_forward: [**U**pdating data](#updating-data)                                          | [newLink]()       |
-|                                                                  | :arrow_forward: [**D**elete data](#delete-data)                                              | [newLink]()       |
+|                                                                  | :arrow_forward: [**U**pdating data](#updating-data)                                          | [Route to GET one Text](#Route-to-GET-one-Text)       |
+|                                                                  | :arrow_forward: [**D**elete data](#delete-data)                                              | [Route to CREATE a Text](#Route-to-CREATE-a-Text)       |
 
 
 ## What is a Database?
@@ -492,6 +492,23 @@ app.get('/texts', async (request, response) => { // 1.
 > 1. Now, we added the `async` keyword in front the function that will be called when a user enters in the `/texts` endpoint. After that, we are able to use `await` instead of calling `.then()` eeru time.
 > 2. Now, we can remove the `.then()` and just `await` for the database finish finding all `Text`s. After that, we just send it back as we did before.
 
-## Route to GET one text
-The ideia is to make available a route that users can use to find a single `Text` by its ID. We can do it my using some stuff that we learned about our database, like the method `.findById(id)`
+## Route to GET one Text
+The ideia is to make available a route that users can use to find a single `Text` by its ID. We can do it my using some stuff that we learned about our database, like the method `.findById(id)`.
 
+```javascript
+app.get('/texts/:id', async (request, response) => { // 1.
+  let id = request.params.id // 2.
+  try {
+    let foundText = await Text.findById(id) // 3.
+    return response.send(foundText) // 4.
+  } catch (error) { // 5.
+    return response.status(404).send({ error: `There are no Text with the given id: ${id}` }) // 6.
+  }
+})
+```
+> 1. We are creating a route with the following path `/texts/${someId}`, that will be id given by the user/Front-end during the request.
+> 2. We are getting the id that was used in the url. For example, if the following link was used: `https://localhost/texts/2fF34a` the value inside our `id` variable would be `'2fF34a'`    
+> 3. We are using the method that we learned before, `.findById(id)` and we are using it with the id that we received in the request.   
+> 4. If everything was OK, we will send back the `Text` that we found in our database to the person that made the request. 
+> 5. Its possible to occurr an `error`, like request having an `ID` that does not exist in our database. So, if this happens we will do something.
+> 6. It is a good idea to advise who send the request, with a message and the correct status. 
