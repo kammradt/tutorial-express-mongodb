@@ -551,3 +551,19 @@ app.put('/texts/:id', async (request, response) => { // 1.
 > 6. Now that our `Text` object has the new information, we will save it. 
 > 7. We are now returning the updated version of the `Text`, so who requested knows everything was fine and the `Text` was updated.
 > 8. If some error occurred, we will send a message saying what wrong happened.
+
+## Route to DELETE a Text
+The idea now is to delete something that we do not want anymore. The process will be really easy as follow:
+```javascript
+app.delete('/texts/:id', async (request, response) => {
+  let id = request.params.id 
+  try {
+    let deleted = await Text.findByIdAndDelete(id) // 1.
+    return response.send({message: `The Text with title: ${deleted.title} and id: ${deleted.id} was successfully deleted!`}) // 2. 
+  } catch (error) {
+    return response.status(404).send({ error: `There are no Text with the given id: ${id}` })
+  }
+})
+```
+> 1. We will try to find the and delete the `Text` that the request wants to delete.
+> 2. It is a good ideia to inform in the response that the `Text` was deleted successfully.

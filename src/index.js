@@ -44,6 +44,16 @@ app.put('/texts/:id', async (request, response) => {
   }
 })
 
+app.delete('/texts/:id', async (request, response) => {
+  let id = request.params.id 
+  try {
+    let deleted = await Text.findByIdAndDelete(id)
+    return response.send({message: `The Text with title: ${deleted.title} and id: ${deleted.id} was successfully deleted!`}) 
+  } catch (error) {
+    return response.status(404).send({ error: `There are no Text with the given id: ${id}` })
+  }
+})
+
 app.listen(port, () => {
   console.log(`Server is ON and running on port ${port}`)
 })
