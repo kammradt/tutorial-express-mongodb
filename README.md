@@ -192,8 +192,8 @@ const Text = moongose.model('Text', {
   size: {
     type: Number,
     required: true,
-    min: [600, 'Size must be equal or bigger than 600'], // 2.
-    max: [1000, 'Size must be equal or less than 1000!']  // 2.
+    min: [600, 'Text size must be equal or bigger than 600'], // 2.
+    max: [1000, 'Text size must be equal or less than 1000!']  // 2.
   }
 })
 ```
@@ -396,8 +396,8 @@ const Text = moongose.model('Text', {
     size: {
         type: Number,
         required: true,
-        min: [600, 'Size must be equal or bigger than 600'],
-        max: [1000, 'Size must be equal or less than 1000!']
+        min: [600, 'Text size must be equal or bigger than 600'],
+        max: [1000, 'Text size must be equal or less than 1000!']
     }
 })
 
@@ -548,4 +548,4 @@ app.put('/texts/:id', async (request, response) => { // 1.
 > 5. We are now setting the new information in the `Text` that we found. This is really similar to what we learned in [this part: Updating data](#Updating-data)
 > 6. Now that our `Text` object has the new information, we will save it. 
 > 7. We are now returning the updated version of the `Text`, so who requested knows everything was fine and the `Text` was updated.
-> 8. If some error occurred, we will send a message saying it with the right status. 
+> 8. If some error occurred, we will send a message saying what wrong happened.

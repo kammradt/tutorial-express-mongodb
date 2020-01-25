@@ -12,9 +12,8 @@ const Text = moongose.model('Text', {
     },
     size: {
         type: Number,
-        required: true,
-        min: [600, 'Size must be equal or bigger than 600'],
-        max: [1000, 'Size must be equal or less than 1000!']
+        min: [600, 'Text size must be equal or bigger than 600'],
+        max: [1000, 'Text size must be equal or less than 1000!']
     }
 })
 
