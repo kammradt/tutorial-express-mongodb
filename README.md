@@ -297,11 +297,13 @@ willBeSaved.save().then(saved => {
 Lets start by installing our Back-end framework that will be used. We used `Vue.js` to create beautiful pages, and we will use `Express` to create our server.
 1. Run `npm install express` in the terminal inside our project folder.
 2. Run `npm install nodemon` in the terminal inside our project folder.
+3. Run `npm install cors` in the terminal inside our project folder.
 
 > 1. Express is a javascript library that help us creating APIs similars to what we have seen on Github, for example.  
 Using it, will be possible to do something like:
 `GET www.site.com.br/api/getTexts` and receive a list of ours Texts from the Database.
 > 2. Nodemon is just a small library to help us during the process of development. Remember that when we were using `Vue.js`, file changes were reloaded automatically to the page? This will do the same but for our API.
+> 3. The package will help us control who can access our API by creating some CORs rules, this will allow only some URLs to communicate with our endpoints.
 
 
 Now, we are going to start our real project. Let's create a file that will work as the start of our API.  
@@ -309,19 +311,26 @@ We can create an `index.js` file in our `src` folder.
 > src/index.js
 ```javascript
 const express  = require('express') // 1.
+const cors = require('cors') // 2
 
-const app = express() // 2.
-const port = process.env.PORT || 3000 // 3.
+const app = express() // 3.
+const port = process.env.PORT || 3000 // 4.
 
-app.listen(port, () => { // 4.
+app.use(cors({
+  origin: 'http://localhost:8080' // 2.1
+}))
+
+app.listen(port, () => { // 5.
     console.log(`Server is ON and running on port ${port}`)
 })
 ```
 
 > 1. Importing our Express library.
-> 2. Creating a variable for our app by using the express library.
-> 3. We will use the default port on our real server (`80`) or in development it will `3000`.
-> 4. We will tell the app to use the port (`80` or `3000`), and if everything is OK, we will receive a message in the console.
+> 2. Importing the CORs library.
+> 2.1 Now we are saying that only that origin can call and use our API. This address would probraly be one of our clients or maybe our Front-end.
+> 3. Creating a variable for our app by using the express library.
+> 4. We will use the default port on our real server (`80`) or in development it will `3000`.
+> 5. We will tell the app to use the port (`80` or `3000`), and if everything is OK, we will receive a message in the console.
 
 
 Now, we can configure our `package.json`.
@@ -412,11 +421,16 @@ We can also organize our `index.js` file:
 
 ```javascript
 const express = require('express')
+const cors = require('cors')
 const Text = require('./db/models/text') // 1.
 require('./db/mongoose') // 2.
 
 const app = express()
 const port = process.env.PORT || 3000
+
+app.use(cors({
+  origin: 'http://localhost:8080'
+}))
 
 app.use(express.json()) // 3.
 
@@ -441,7 +455,7 @@ Now, we will create a route that will display all our `Text`s. This will be real
 app.get('/texts', (request, response) => { // 1.
 
   Text.find().then(result => { // 2.
-    return response.send({ text: result}) // 3.
+    return response.send({ texts: result}) // 3.
   })
 
 })
@@ -477,4 +491,7 @@ app.get('/texts', async (request, response) => { // 1.
 ```
 > 1. Now, we added the `async` keyword in front the function that will be called when a user enters in the `/texts` endpoint. After that, we are able to use `await` instead of calling `.then()` eeru time.
 > 2. Now, we can remove the `.then()` and just `await` for the database finish finding all `Text`s. After that, we just send it back as we did before.
+
+## Route to GET one text
+The ideia is to make available a route that users can use to find a single `Text` by its ID. We can do it my using some stuff that we learned about our database, like the method `.findById(id)`
 
