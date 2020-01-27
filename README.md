@@ -617,7 +617,7 @@ app.post('/texts', async (request, response) => { // 1.
 
 
 ## Route to GET one Text
-The ideia is to make available a route that users can use to find a single `Text` by its ID. We can do it my using some stuff that we learned about our database, like the method `.findById(id)`.
+The ideia is to make available a route that users can use to find a single `Text` in our database by its ID. We can do it by using methods that we learned about our database, like the method `.findById(id)`. It will be really easy as follow: 
 
 ```javascript
 app.get('/texts/:id', async (request, response) => { // 1.
