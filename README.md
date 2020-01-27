@@ -5,9 +5,9 @@
 |-                                                                                          |-                                                                 | -                                                                                            | 
 | [Who?](#who?)                                                                             | [What is a Database?](#what-is-a-database)                       | [Creating a project](#creating-a-project)                                                    |
 | [What? *What we will build?*](#What?-What-we-will-build?)                                 | [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | 
-| [Why? *What is our objective?*](#Why?-What-is-our-objective?)                             | [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [What is **CRUD**?](#what-is-crud)                                                           |
-| [How? *Are are the tools that we will use?*](#How?-*What-are-the-tools-that-we-will-use?) | [Installing a client for Mongo](#installing-a-client-for-mongo)  | [**C**reating the basic file](#creating-the-basic-file)                                      | 
-|                                                                                           |                                                                  | [Adding rules to Text model](#adding-rules-to-text-model)                                    |
+| [Why? *What is our objective?*](#Why?-What-is-our-objective?)                             | [HTTP Verbs](#http-verbs)                                        | [What is **CRUD**?](#what-is-crud)                                                           |
+| [How? *Are are the tools that we will use?*](#How?-*What-are-the-tools-that-we-will-use?) | [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [**C**reating the basic file](#creating-the-basic-file)                                      | 
+|                                                                                           | [Installing a client for Mongo](#installing-a-client-for-mongo)                                                                  | [Adding rules to Text model](#adding-rules-to-text-model)                                    |
 |                                                                                           |                                                                  | [**R**eading data](#reading-data)                                                            | 
 |                                                                                           |                                                                  | [**U**pdating data](#updating-data)                                                          | 
 |                                                                                           |                                                                  | [**D**elete data](#delete-data)                                                              |
@@ -122,6 +122,47 @@ It is really commom for people or bussiness to create an API and give it to the 
 *(It is not secure and not a good idea at all give clients or users access to our server or databases)*  
 Of course APIs can also be developed to manipulate data, such as creating new information with a `POST` call, or even delete information with a `DELETE` one.  
 Our plan is to create an API to manipulate some `Texts`, such as `Creating`, `Listing all`, `Updating` and `Deleting`.
+
+### HTTP verbs
+As we saw before, an API is a really interesting way of creating and provide a service or just information. Now, to understand how we can **use**/**consume** an API, we need ot understand a little bit about **HTTP Verbs/calls**.  
+When we are accessing a website, we dont even notice, but we are making **HTTP calls**. But, what are they? They are basically how we *request* data from the website server and receive a *response* that is displayed in our browser (such as Chrome or Firefox).  
+Most of the time, we receive just HTML responses with the content of the website, because them the browser understand it and can display it to us in a beautiful way.  
+But, when we are working with APIs, most of the time we will receive just a bunch of information formatted to be used by other websites. Lets imagine: 
+
+#### Simple example of a Recipes website 
+You have a simple website to display all kinds of **Recipes**.  
+The website only shows 10 recipes every time and the user can also use a search bar to find other recipes.  We can imagine the structure being something like:   
+We have a **Vue.js** front-end that displays beautiful HTML pages (could be any JS framework or just HTML+JS), and when the website is loading, it **calls** a **back-end** using *axios* to perform a **GET** request to retrieve the 10 most famous recipes. But, in our back-end server, we also have a **Database** with more than 10 milion recipes. We keep this recipes storaged in the database because it would be almost impossible to create a variable in the front-end to hold this amount of information. And also, it could cause our website to be really slow and bad to use. We, of course, do not want to lose this information, so we use a good database with a lot of rules to make sure all recipes follow a **Model**. 
+To be able to access all the others recipes, we can create an **API** that accepts a **GET** request, that is called everytime the users use the search bar, and the **API** can just return a **JSON** with the recipes that contain the searched phrase/word.
+> JSON is a really commom way of sending and receiving data. It is a acronym for: **J**ava**S**cript **O**bject **N**otation. When working with javascript, it is really easy to create an example:  
+> ```javascript
+> let jsonExample = {
+>   recipeTitle: 'The best choco cake',
+>   preparationTime: 50,
+>   difficulty: 'Easy'
+> }
+> ```
+> As you can see, a JSON is literally a simple Javascript Object variable.
+
+#### Examples of HTTP verbs and CODES
+| Verb        | Used to |
+| -           | -       | 
+| **GET**     | GET information/JSON or some content such as images.                |
+| **POST**    | CREATE/SEND new information. During registration, for example.      |
+| **PUT**     | UPDATE old information. Such as changing an account password.       |
+| **DELETE**  | DELETE information. Such as when you delete a photo from Instxgrxm. |
+<br>
+
+When we make request and receive responses, together with the information we send or receive, we also receive a **HTTP STATUS CODE**, that is basically a number that represents a **STATUS**, that coudl be, for example: Success, Error, Not Found, Missing Permission, etc.
+
+| Code 	| Meaning                               	            |
+|-    	|-                                      	            |
+|  200 	| OK, this is a success                 	            |
+|  201 	| CREATED a resource                    	            |
+|  400 	| BAD REQUEST, verify the body/params information   	|
+|  401 	| UNAUTHORIZED, give a me correct token/information 	|
+|  403 	| FORBIDDEN, you should not ask again   	            |
+|  404 	| NOT FOUND, try another resource       	            |
 
 ## Installing MongoDB on Ubuntu
 
