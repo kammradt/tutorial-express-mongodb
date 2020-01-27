@@ -385,7 +385,8 @@ willBeSaved.save().then(saved => {
 
 ## Creating the basic API file
 
-Lets start by installing our Back-end framework that will be used. We used `Vue.js` to create beautiful pages, and we will use `Express` to create our server.
+Lets start by installing our Back-end framework that will be used. We used `Vue.js` to create beautiful pages, and we will use `ExpressJS` to create our server. `Express` will help us access our database in a easy way based on what is `requested` by our front-end. 
+
 1. Run `npm install express` in the terminal inside our project folder.
 2. Run `npm install nodemon` in the terminal inside our project folder.
 3. Run `npm install cors` in the terminal inside our project folder.
@@ -418,7 +419,7 @@ app.listen(port, () => { // 5.
 
 > 1. Importing our Express library.
 > 2. Importing the CORs library.
-> 2.1 Now we are saying that only that origin can call and use our API. This address would probraly be one of our clients or maybe our Front-end.
+> 2.1 Now we are saying that only that origin can call and use our API. This address would probably be one of our clients or maybe our Front-end.
 > 3. Creating a variable for our app by using the express library.
 > 4. We will use the default port on our real server (`80`) or in development it will `3000`.
 > 5. We will tell the app to use the port (`80` or `3000`), and if everything is OK, we will receive a message in the console.
@@ -434,7 +435,7 @@ Now, we can configure our `package.json`.
 ```
 
 > 1. `npm run dev` will start a development server.
-> 2. `npm run start` will run a real server that will onyl be used after we finish our app.
+> 2. `npm run start` will run a real server that will only be used after we finish our app.
 
 So, just to verify if everything is ok, we can run `npm run dev`.
 
