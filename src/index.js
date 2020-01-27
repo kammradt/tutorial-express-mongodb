@@ -38,17 +38,17 @@ app.put('/texts/:id', async (request, response) => {
 
     let updatedText = await foundText.save()
     return response.send(updatedText)
-    
+
   } catch (error) {
     return response.status(404).send({ error: `An error occurred: ${error}` })
   }
 })
 
 app.delete('/texts/:id', async (request, response) => {
-  let id = request.params.id 
+  let id = request.params.id
   try {
     let deleted = await Text.findByIdAndDelete(id)
-    return response.send({message: `The Text with title: ${deleted.title} and id: ${deleted.id} was successfully deleted!`}) 
+    return response.send({ message: `The Text with title: ${deleted.title} and id: ${deleted.id} was successfully deleted!` })
   } catch (error) {
     return response.status(404).send({ error: `There are no Text with the given id: ${id}` })
   }
