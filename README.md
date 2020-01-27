@@ -311,8 +311,8 @@ willBeSaved.save().then(saved => { // 1.
 > 1. Now we are verifying if our object was successfully saved on our database. If everything was fine, we will receive a `saved` object that is a `Text` object with an `ID` and same fields that we give to it previously. At this moment, this information is present in our database.
 > 2. This will show our `saved` object. This is a Javascript variable that represents our saved object from the database.
 > 3. From this `saved` object, we are getting the ID that the database generated and saving it on `idOfSavedText`. This is an unique identifier that every `Text` that we have will have, and we can find any `Text` if we know its `ID`
-> 4. This is the function that does the job of searching a object by id: `Text.findById(...)` and we agora gonna use it to find the object that we saved some seconds ago.
-> 5. If everything was fine, we will receibe the same object as we had before with `saved`.
+> 4. This is the function that does the job of searching a object by id: `Text.findById(...)` and we are gonna use it to find the object that we saved some seconds ago.
+> 5. If everything was fine, we will receive the same object as we had before with `saved`.
 > 6. If this was a real app, maybe a user was trying to find an object and search for the wrong id, so it will return an error.
 > 7. This console will be printed if we had some validation errors or other problem.
 
