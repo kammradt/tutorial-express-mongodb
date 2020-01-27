@@ -602,12 +602,18 @@ app.post('/texts', async (request, response) => { // 1.
   }
 })
 ```
-> 1. Now we will use the POST verb to create a new `Text`. 
-> 2. We will get the new `Text` information from the `request body` and save it into `newText`
-> 3. We will use the data received to create a `new Text object`.
+> 1. Now we will use the POST verb to create a new `Text`.
+> 2. We will get the new `Text` information from the `request body` and save it into `newText`. Ther body of a request is literally some text that we send together in the `request body`. We can also send information using the url. For example: In the GithubAPI case, we send the URL with the name of the user on it, and the GithubAPI uses it to find in their database information about the given user.
+> 3. We will use the data received to create a `new Text object`. This variable will look similar to:
+> ```javascript
+> {
+>   title: 'Harry potter and the best Javascript course ever!',
+>   text: 'Some really long text...'
+> }
+> ```
 > 4. Now, we can save it and also verfy if there are any errors. If there are errors, the `catch` clause will return an error message to the one who send the request.
-> 5. We will send the created `Text` to who send the request.
-> 6. We will return the errors and a `code 400` to notify that it was a `Bad Request`.
+> 5. We will send the created `Text` to who send the request. At this moment, we will send more information in the response, such as the `size` that we calculated in the server. This is a really important point: At this moment, we are doing simple stuff, but in real world apps, the back-end will be a powerfull machine, capable of doing really complex calculus and accessing huge databases, and now some pros of splitting back-end and front-end are a more clear to understand. 
+> 6. We will return the errors and a `code 400` to notify that it was a `Bad Request` and something is wrong.
 
 
 ## Route to GET one Text
