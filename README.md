@@ -352,7 +352,8 @@ willBeSaved.save().then(saved => {
   })
 })
 ```
-Now, if you verify in your Database using compass, or by using code with `.findById()`, you will see that the `title` changed from `A great Title` to `My new title`.
+Now, if you verify in your Database using compass, or by using code with `.findById()`, you will see that the `title` changed from `A great Title` to `My new title`.  
+OBS: Note that you can update any `Text` that is in our database, not only the ones you saved some seconds ago. You can first use a `.find()` to get all `Text`s, after that, verify which one you want to update and get it by using `.findById()`, and in the end, edit the values and call `.save()`.
 
 ### **Delete data**
 It is also a good ideia know how to remove data if it is not necessary or our user wants to, and we can do it like this:
