@@ -379,9 +379,9 @@ willBeSaved.save().then(saved => {
   })
 })
 ```
-> 1. We are first saving a new object in our Database named `saved`. Lets imagine that after some time, the users wants to delete it. Then, we will do the code below 2.
-> 2. We will call the method `findByIdAndDelete(id)` and this method will delete the object and also return a copy of it. (But the object is deleted!!! It is just a copy to display a last information of it).
-> 3. If we try to find the object that we just deleted by it's `ID`, it will return a `null`, because it was previously deleted.
+> 1. We are first saving a new object in our Database named `saved`. Lets imagine that after some time, the users wants to delete it. Then, we will do the code below 2. Of course this could be an old object saved some time ago and we could also find it using other methods that we learned.
+> 2. We will call the method `findByIdAndDelete(id)` and this method will delete the object and also return a copy of it. (But the object is deleted!!! It is just a copy to display a last information of it). If we verify the database, the object is already gone and we just have a variable with the information.
+> 3. If we try to find the object that we just deleted by it's `ID`, it will return a `null`, because it was previously deleted. The resoult would be `null` if we use the method to find by `id`, but give a wrong `id`, for example.
 
 ## Creating the basic API file
 
