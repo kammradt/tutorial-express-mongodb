@@ -198,6 +198,13 @@ When using and creating our project, we will interact with the database using co
 
 ### **What is CRUD**?
 CRUD is a acronym for `CREATE`, `READ`, `UPDATE`, `DELETE`. These are the basic operations that we are going to perform on our Database.  
+In this project, we will perform stuff like:  
+- **Create** a new `Text` with title and text.
+- **Update** a `Text`, by changing the title or the literall text.
+- **Delete** a previously created `Text`.
+- **Get** all texts that are in our database.
+- **Get** a single text that are in our database by its `ID`.
+
 We need to be able to `CREATE` information and insert it on our database. After that, maybe we want to `READ` it and display to our users. If the users want to change it, we need to be able to `UPDATE` our database information, and if they do not like it, we will need to `DELETE` it.
 
 ### **Creating the basic file**
@@ -248,12 +255,12 @@ const willBeSaved = new Text({
 // 6.
 willBeSaved.save()
 ``` 
-> 1. This URL is created by using the URL from the database (`mongodb://127.0.0.1:27017`) and the name that we want to give to our database (`database-texts`).
+> 1. This URL is created by using the URL from the database (`mongodb://127.0.0.1:27017`) and the name that we want to give to our database (`database-texts`). As we say before, a Database can be defined as a place where we storage data in a ceratin way, with some rules and validations. But in fact, we whe look at it, it is just an application running that can write information and manipulate it by modifying files (but in a really organized and structured way). This URL is just a way of connecting to it, like when we access a website by its URL.  
 > 2. Just to make sure that our Database will create the correct IDs and Indexes.
 > 3. Now we are **defining** a **Model** called Text. So, every time that we need to save a new Text, it will follow the same pattern and fields. This will be really useful for maintaining and organizing our Database. It is called Model because it is literally a Model that will be followed when we want to create a new **Text**. The appeareance is really similar to a Javascript Object or a C Struct, for example.  
 > As an example of some rules, we are saying that the **text** and **size** are required, but the title is optional.
-> 4. Just creating the variables that we will use to create a Text object and save in our Database. In a real application, problably a user would give this data to us.
-> 5. Creating a Text object using our variables.
+> 4. Just creating the variables that we will use to create a Text object and save in our Database. In a real application, problably a user would give this data to us. When talking about an API, the users can make **Requests** to us with some data, and we will use that data to create new `Text`s in ourn database.
+> 5. Creating a Text object using our variables. This is possible because we defined a `Text` model with some rules with `mongoose`. This is basically the same as creating a `model/collection` directly in the database, but now with code and faster.
 > 6. Now we are calling the method `.save()` on your **Text** object that were created by using our **Model**. Note that this is not a simple object, is a object from the **Text** model.  
   
 
