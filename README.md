@@ -492,6 +492,32 @@ app.get('/texts', async (request, response) => { // 1.
 > 1. Now, we added the `async` keyword in front the function that will be called when a user enters in the `/texts` endpoint. After that, we are able to use `await` instead of calling `.then()` eeru time.
 > 2. Now, we can remove the `.then()` and just `await` for the database finish finding all `Text`s. After that, we just send it back as we did before.
 
+## Route to CREATE a Text
+The most important part is to be able to create a new Text. This is really easy and we can do it as follow:
+```javascript
+app.post('/texts', async (request, response) => { // 1.
+  let newText = request.body // 2.
+  try {
+    let myText = new Text({ // 3.
+      title: newText.title,
+      text: newText.text,
+      size: newText.text.split(' ').length
+    })
+    let savedText = await myText.save() // 4.
+    return response.send(savedText) // 5.
+  } catch (error) {
+    return response.status(400).send({ error: `An error occurred: ${error}` }) // 6.
+  }
+})
+```
+> 1. Now we will use the POST verb to create a new `Text`. 
+> 2. We will get the new `Text` information from the `request body` and save it into `newText`
+> 3. We will use the data received to create a `new Text object`.
+> 4. Now, we can save it and also verfy if there are any errors. If there are errors, the `catch` clause will return an error message to the one who send the request.
+> 5. We will send the created `Text` to who send the request.
+> 6. We will return the errors and a `code 400` to notify that it was a `Bad Request`.
+
+
 ## Route to GET one Text
 The ideia is to make available a route that users can use to find a single `Text` by its ID. We can do it my using some stuff that we learned about our database, like the method `.findById(id)`.
 

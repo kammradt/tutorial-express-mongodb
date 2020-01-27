@@ -12,6 +12,21 @@ app.use(cors({
 
 app.use(express.json())
 
+app.post('/texts', async (request, response) => {
+  let newText = request.body
+  try {
+    let myText = new Text({
+      title: newText.title,
+      text: newText.text,
+      size: newText.text.split(' ').length
+    })
+    let savedText = await myText.save()
+    return response.send(savedText)
+  } catch (error) {
+    return response.status(400).send({ error: `An error occurred: ${error}` })
+  }
+})
+
 app.get('/texts', async (request, response) => {
   let listOfTexts = await Text.find()
   return response.send({ text: listOfTexts })
