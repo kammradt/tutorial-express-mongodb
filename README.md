@@ -290,7 +290,7 @@ const Text = moongose.model('Text', {
 
 Creating some rules will help us during the process of creating new `Text`s, because now when we call the `.save()` method, before saving this information in the database, it will first validate using our rules, and it will guarantee that our database is well formatted and when we need information from it, they will be always following the same pattern and `model`.
 
-### **Reading data**
+### **Reading data** 
 After creating some objects in your database, maybe it is a good ideia discover how we can find those values and show to our users, for example. This is a simple task, and can be done as follow:
 
 ```javascript
@@ -308,9 +308,9 @@ willBeSaved.save().then(saved => { // 1.
   console.log(`We have erros!: ${failed}`) // 7.
 })
 ```
-> 1. Now we are verifying if our object was successfully saved on our database. If everything was fine, we will receive a `saved` object that is a `Text` object with an `ID` and same fields that we give to it previously. 
-> 2. This will show our `saved` object.
-> 3. Fro this `saved` object, we are getting the ID that the database generated and saving it on `idOfSavedText`.
+> 1. Now we are verifying if our object was successfully saved on our database. If everything was fine, we will receive a `saved` object that is a `Text` object with an `ID` and same fields that we give to it previously. At this moment, this information is present in our database.
+> 2. This will show our `saved` object. This is a Javascript variable that represents our saved object from the database.
+> 3. From this `saved` object, we are getting the ID that the database generated and saving it on `idOfSavedText`. This is an unique identifier that every `Text` that we have will have, and we can find any `Text` if we know its `ID`
 > 4. This is the function that does the job of searching a object by id: `Text.findById(...)` and we agora gonna use it to find the object that we saved some seconds ago.
 > 5. If everything was fine, we will receibe the same object as we had before with `saved`.
 > 6. If this was a real app, maybe a user was trying to find an object and search for the wrong id, so it will return an error.
