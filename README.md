@@ -660,7 +660,7 @@ app.put('/texts/:id', async (request, response) => { // 1.
 
 > 1. When we want to update information, we use the PUT verb. 
 > 2. We are getting the `ID` from the URL.
-> 3. We ARE getting the request body with the new information that will be used to update the `Text` with the `ID` from the url. The body will be really similar to our `Text` model:
+> 3. We are getting the request body with the new information that will be used to update the `Text` with the `ID` from the url. The body will be really similar to our `Text` model:
 > ```javascript
 > PUT: `http://localhost:3000/texts/12h312nj`
 >
