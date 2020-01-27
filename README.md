@@ -288,6 +288,8 @@ const Text = moongose.model('Text', {
 > 1. The trim property will remove extra spaces from our String. For example, if a user is trying to save a title like `'  My title '`, it will actually be saved as `'My Text'`.
 > 2.  `min` and `max` will help us control the size. For example, remember that texts have a size rule? So we can apply it here and guarantee that all our saved texts have the minimum and maximum size. 
 
+Creating some rules will help us during the process of creating new `Text`s, because now when we call the `.save()` method, before saving this information in the database, it will first validate using our rules, and it will guarantee that our database is well formatted and when we need information from it, they will be always following the same pattern and `model`.
+
 ### **Reading data**
 After creating some objects in your database, maybe it is a good ideia discover how we can find those values and show to our users, for example. This is a simple task, and can be done as follow:
 
