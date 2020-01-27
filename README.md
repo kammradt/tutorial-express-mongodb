@@ -178,11 +178,14 @@ Now you can verify if your installation was successfully:
 2. Verify if it was started: `systemctl status mongod`
 
 ## Installing a client for Mongo
+A database client is just a program that can diretcly connect to the Database and interact with it. It is common to use it during the process of development and also after that to verify if everything is OK with our database. At this moment, we will install a client that is compatible with **MondoDB**, called **Compass**. 
 
 1. Go to [this link](https://www.mongodb.com/download-center/compass)
 2. Select your OS version
 3. Click on `Download`
 4. Click on the `.deb` file to install  
+
+When using and creating our project, we will interact with the database using code, because in this way, we can re-use a lot of things and can do a lot more automatically with all the structures that Javascript provide to us.
 
 
 ## Creating a project
