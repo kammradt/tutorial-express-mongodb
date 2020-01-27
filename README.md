@@ -4,7 +4,7 @@
 |Sumary                                                                                     | Introduction                                                     | Database                                                                                     | 
 |-                                                                                          |-                                                                 | -                                                                                            | 
 | [Who?](#who?)                                                                             | [What is a Database?](#what-is-a-database)                       | [Creating a project](#creating-a-project)                                                    |
-| [What? *What we will build?*](#What?-What-we-will-build?)                                 | [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | 
+| [What? *What will we build?*](#What?-What-will-we-build?)                                 | [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | 
 | [Why? *What is our objective?*](#Why?-What-is-our-objective?)                             | [HTTP Verbs](#http-verbs)                                        | [What is **CRUD**?](#what-is-crud)                                                           |
 | [How? *Are are the tools that we will use?*](#How?-*What-are-the-tools-that-we-will-use?) | [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [**C**reating the basic file](#creating-the-basic-file)                                      | 
 |                                                                                           | [Installing a client for Mongo](#installing-a-client-for-mongo)                                                                  | [Adding rules to Text model](#adding-rules-to-text-model)                                    |
@@ -28,7 +28,7 @@
 Hi there! My name is Vinícius Kammradt, I`ve been playing with technology since 2016. I really enjoy creating new stuff and also love to spread any knowledge that I have with others.  
 Now, with help from [Gabriela de Almeida Riul](https://www.linkedin.com/in/gabriela-de-almeida-riul-2a1321184/), an Electrical Engineering student and also volunteear at [PET EEL](http://www.peteel.ufsc.br/), who is also interested in development, we will try to beat a challenge proposed by [Código Falado](https://github.com/codigofalado).
 
-## What? *What we will build?*
+## What? *What will we build?*
 The main idea of this project is to create a complete website to [this challenge](https://github.com/codigofalado/desafio333/blob/master/2020-Janeiro-Leitura-Organica/README.md). 
 > O cliente (Leitura Orgânica) precisa de uma Landing Page para possibilitar que o usuário calcule sua velocidade de leitura.  
 
