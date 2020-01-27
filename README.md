@@ -3,25 +3,25 @@
 
 |Sumary                                                                                     | Introduction                                                     | Database                                                                                     | 
 |-                                                                                          |-                                                                 | -                                                                                            | 
-| [Who?](#who)                                                                             | [What is a Database?](#what-is-a-database)                       | [Creating a project](#creating-a-project)                                                    |
-| [What? *What will we build?*](#what-what-will-we-build)                                 | [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | 
-| [Why? *What is our objective?*](#why-what-is-our-objective)                             | [HTTP Verbs](#http-verbs)                                        | [What is **CRUD**?](#what-is-crud)                                                           |
-| [How? *Are are the tools that we will use?*](#how-what-are-the-tools-that-we-will-use) | [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [**C**reating the basic file](#creating-the-basic-file)                                      | 
-|                                                                                           | [Installing a client for Mongo](#installing-a-client-for-mongo)                                                                  | [Adding rules to Text model](#adding-rules-to-text-model)                                    |
+| [Who?](#who)                                                                              | [What is a Database?](#what-is-a-database)                       | [Creating a project](#creating-a-project)                                                    |
+| [What? *What will we build?*](#what-what-will-we-build)                                   | [What is an API?](#what-is-an-api)                               | [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)    | 
+| [Why? *What is our objective?*](#why-what-is-our-objective)                               | [HTTP Verbs](#http-verbs)                                        | [What is **CRUD**?](#what-is-crud)                                                           |
+| [How? *Are are the tools that we will use?*](#how-what-are-the-tools-that-we-will-use)    | [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)    | [**C**reating the basic file](#creating-the-basic-file)                                      | 
+|                                                                                           | [Installing a client for Mongo](#installing-a-client-for-mongo)  | [Adding rules to Text model](#adding-rules-to-text-model)                                    |
 |                                                                                           |                                                                  | [**R**eading data](#reading-data)                                                            | 
 |                                                                                           |                                                                  | [**U**pdating data](#updating-data)                                                          | 
 |                                                                                           |                                                                  | [**D**elete data](#delete-data)                                                              |
 
-| API: Introduction                                                 | API: Creating the CRUD      |
-| -                                                                 | -                           |
-| [Creating the basic API file](#Creating-the-basic-API-file)       | [Creating a GET route](#Creating-a-GET-route)                               |
-| [Creating the basic API file](#Creating-the-basic-API-file)       | [Organizing our files and project](#Organizing-our-files-and-project)       |
-| [Creating routes](#Creating-routes)                               | [Creating a real GET route](#Creating-a-real-GET-route)                     |
-|                                                                   | [Refactoring the code](#Refactoring-the-code)                               |
-|                                                                   | [Route to CREATE a Text](#Route-to-CREATE-a-Text)                           |
-|                                                                   | [Route to GET one Text](#Route-to-GET-one-Text)                             |
-|                                                                   | [Route to UPDATE a Text](#Route-to-UPDATE-a-Text)                           |
-|                                                                   | [Route to DELETE a Text](#Route-to-DELETE-a-Text)                           |
+| API: Introduction                                                 | API: Creating the CRUD                                                | API: Sending emails |
+| -                                                                 | -                                                                     | -                   |
+| [Creating the basic API file](#Creating-the-basic-API-file)       | [Creating a GET route](#Creating-a-GET-route)                         |                     |
+| [Creating the basic API file](#Creating-the-basic-API-file)       | [Organizing our files and project](#Organizing-our-files-and-project) |                     |
+| [Creating routes](#Creating-routes)                               | [Creating a real GET route](#Creating-a-real-GET-route)               |                     |
+|                                                                   | [Refactoring the code](#Refactoring-the-code)                         |                     |
+|                                                                   | [Route to CREATE a Text](#Route-to-CREATE-a-Text)                     |                     |
+|                                                                   | [Route to GET one Text](#Route-to-GET-one-Text)                       |                     |
+|                                                                   | [Route to UPDATE a Text](#Route-to-UPDATE-a-Text)                     |                     |
+|                                                                   | [Route to DELETE a Text](#Route-to-DELETE-a-Text)                     |                     |
 
 
 ## Who?
