@@ -729,3 +729,32 @@ To be able to send emails and use the SendGrid API with our code, we need to gen
 Now you will have a big code that will be used to authenticate using code, instead of using email/password.
 
 ## Adding SendGrid library to the project
+SendGrid actually has a really complete library with all code and functions ready to use. You can verify more details [here](https://github.com/sendgrid/sendgrid-nodejs/tree/master/packages/mail).
+To install and use it in our project, do the following:
+1. Run: `npm install --save @sendgrid/mail`
+
+And now, we can do to our `index.js` and start adding a new route:
+```javascript
+const sgMail = require('@sendgrid/mail'); // At the top of the file
+sgMail.setApiKey('your-api-generated-key'); // Near to other config 
+
+app.get('/mail', async (request, response) => { // 1.
+  const msg = {
+    to: 'you-email@gmail.com',
+    from: 'you-email@gmail.com',
+    subject: 'This is my title!',
+    html: 'This is my <strong>Text</strong>',
+  }; // 2.
+  try {
+    await sgMail.send(msg); // 3.
+    return response.send({ message: 'Email send!' })
+  } catch (error) {
+    return response.send({ error: `An error occurred: ${error}` })
+  }
+})
+```
+> 1. At this moment, we just created a simple GET route to be easier to test and verify if everything is working. After we understand how the library works, we will change it to a POST request and also receive some information from the front-end, such as the email from the person that did the test, and also the result that the person received.
+> 2. We are now creating an object with all information necessary to use as a parameter to be able to send an email. Notice that we will change the `to` in the future to use the data received in the POST body request and also the `html` content to send more complex emails.   
+> **SendGrid** actually has a online plataform to create beautiful`templates`, and we will use it later. But there is no problem creating an HTML template by hand.
+> 3. We will use the method `.send()` from the `sgMail` library that we imported. This method will read the that we give in the `msg` variable and send an email based on that. 
+
