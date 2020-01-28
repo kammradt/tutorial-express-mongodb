@@ -12,17 +12,17 @@
 |                                                                                           |                                                                  | [**U**pdating data](#updating-data)                                                          | 
 |                                                                                           |                                                                  | [**D**elete data](#delete-data)                                                              |
 
-| API: Introduction                                                 | API: Creating the CRUD                                                | API: Sending emails |
-| -                                                                 | -                                                                     | -                   |
-| [Creating the basic API file](#Creating-the-basic-API-file)       | [Creating a GET route](#Creating-a-GET-route)                         |                     |
-| [Creating the basic API file](#Creating-the-basic-API-file)       | [Organizing our files and project](#Organizing-our-files-and-project) |                     |
-| [Creating routes](#Creating-routes)                               | [Creating a real GET route](#Creating-a-real-GET-route)               |                     |
-|                                                                   | [Refactoring the code](#Refactoring-the-code)                         |                     |
-|                                                                   | [Route to CREATE a Text](#Route-to-CREATE-a-Text)                     |                     |
-|                                                                   | [Route to GET one Text](#Route-to-GET-one-Text)                       |                     |
-|                                                                   | [Route to UPDATE a Text](#Route-to-UPDATE-a-Text)                     |                     |
-|                                                                   | [Route to DELETE a Text](#Route-to-DELETE-a-Text)                     |                     |
-|                                                                   | [Route to GET a random Text](#Route-to-GET-a-random-Text)             |                     |
+| API: Introduction                                                 | API: Creating the CRUD                                                | API: Sending emails                                                                  |
+| -                                                                 | -                                                                     | -                                                                                    |
+| [Creating the basic API file](#Creating-the-basic-API-file)       | [Creating a GET route](#Creating-a-GET-route)                         | [Introduction about SendGrid](#Introduction-about-SendGrid)                          |
+| [Creating the basic API file](#Creating-the-basic-API-file)       | [Organizing our files and project](#Organizing-our-files-and-project) | [Adding SendGrid library to the project](#Adding-SendGrid-library-to-the-project)    |
+| [Creating routes](#Creating-routes)                               | [Creating a real GET route](#Creating-a-real-GET-route)               |                                                                                      |
+|                                                                   | [Refactoring the code](#Refactoring-the-code)                         |                                                                                      |
+|                                                                   | [Route to CREATE a Text](#Route-to-CREATE-a-Text)                     |                                                                                      |
+|                                                                   | [Route to GET one Text](#Route-to-GET-one-Text)                       |                                                                                      |
+|                                                                   | [Route to UPDATE a Text](#Route-to-UPDATE-a-Text)                     |                                                                                      |
+|                                                                   | [Route to DELETE a Text](#Route-to-DELETE-a-Text)                     |                                                                                      |
+|                                                                   | [Route to GET a random Text](#Route-to-GET-a-random-Text)             |                                                                                      |
 
 
 ## Who?
@@ -713,3 +713,19 @@ app.get('/texts-random', async (request, response) => { // 1.
 > 2. We will first find all texts that we have in our database, with no filters at all.
 > 3. After that, if we generate a random number using the max value as the length of our array, it will be possible to access itself later at a random position and retrieve our random text with success.
 
+## Introduction about SendGrid
+One of our objectives is to be able to send emails about the users results after reading our `Text`s. To do that, we need a service that allow us to send emails using code, and at this moment we can use [SendGrid](https://sendgrid.com/).  
+**SendGrid** is basically a service that gives us a API to send emails and even perfom some customizations, such as creating HTML templates and filling them with custom data.
+Lets verify with an example how we can send a simple email with HTML/raw text. 
+You can create a free account [here](https://signup.sendgrid.com/).
+To be able to send emails and use the SendGrid API with our code, we need to generate a key and use it, just to prove that we are real users and we have a real account at SendGrid.
+
+1. Go to [API KEYs dashboard](https://app.sendgrid.com/settings/api_keys)
+2. Click on the blue button "Create API Key"
+3. Give it a name and choose "Restricted Access"
+4. On permission options, choose just "Mail Send/Mail Send"
+4. Click on "Create & View"
+
+Now you will have a big code that will be used to authenticate using code, instead of using email/password.
+
+## Adding SendGrid library to the project
