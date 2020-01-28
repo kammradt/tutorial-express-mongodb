@@ -22,6 +22,7 @@
 |                                                                   | [Route to GET one Text](#Route-to-GET-one-Text)                       |                     |
 |                                                                   | [Route to UPDATE a Text](#Route-to-UPDATE-a-Text)                     |                     |
 |                                                                   | [Route to DELETE a Text](#Route-to-DELETE-a-Text)                     |                     |
+|                                                                   | [Route to GET a random Text](#Route-to-GET-a-random-Text)             |                     |
 
 
 ## Who?
@@ -691,3 +692,24 @@ app.delete('/texts/:id', async (request, response) => {
 ```
 > 1. We will try to find the and delete the `Text` that the request wants to delete.
 > 2. It is a good ideia to inform in the response that the `Text` was deleted successfully.
+
+
+## Route to GET a random Text
+To add a little bit o fun and dynamism to our front-end, maybe it is a good idea make available a route that return a random text, so users always receive a different text ou even change the current one if they do not want it.
+We can create an endpoint for that as follow:
+```javascript
+app.get('/texts-random', async (request, response) => { // 1.
+  try {
+    let allTexts = await Text.find() // 2.
+    let randomText = allTexts[Math.floor(Math.random() * allTexts.length)]; // 3.
+    return response.send(randomText)
+  } catch (error) {
+    return response.send({ error: `An error occurred: ${error}` })
+  }
+})
+```
+
+> 1. This endpoint will use the **GET** verb and will be really simple, no parameters are necessary.
+> 2. We will first find all texts that we have in our database, with no filters at all.
+> 3. After that, if we generate a random number using the max value as the length of our array, it will be possible to access itself later at a random position and retrieve our random text with success.
+

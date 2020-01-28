@@ -69,6 +69,16 @@ app.delete('/texts/:id', async (request, response) => {
   }
 })
 
+app.get('/texts-random', async (request, response) => {
+  try {
+    let allTexts = await Text.find()
+    let randomText = allTexts[Math.floor(Math.random() * allTexts.length)];
+    return response.send(randomText)
+  } catch (error) {
+    return response.send({ error: `An error occurred: ${error}` })
+  }
+})
+
 app.listen(port, () => {
   console.log(`Server is ON and running on port ${port}`)
 })
