@@ -82,12 +82,16 @@ app.get('/texts-random', async (request, response) => {
   }
 })
 
-app.get('/mail', async (request, response) => {
+app.post('/mail', async (request, response) => {
+  let emailInformation = request.body
   const msg = {
-    to: 'you-email@gmail.com',
+    to: emailInformation.to,
     from: 'you-email@gmail.com',
-    subject: 'This is my title!',
-    html: 'This is my <strong>Text</strong>',
+    templateId: 'd-aaaabbbbcccddddeeee',
+    dynamic_template_data: {
+      receiverName: emailInformation.receiverName,
+      resultValue: emailInformation.resultValue
+    },
   };
   try {
     await sgMail.send(msg);
