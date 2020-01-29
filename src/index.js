@@ -2,9 +2,12 @@ const express = require('express')
 const cors = require('cors')
 const Text = require('./db/models/text')
 require('./db/mongoose')
+const sgMail = require('@sendgrid/mail');
 
 const app = express()
 const port = process.env.PORT || 3000
+
+sgMail.setApiKey('your-api-generated-key');
 
 app.use(cors({
   origin: 'http://localhost:8080'
@@ -66,6 +69,35 @@ app.delete('/texts/:id', async (request, response) => {
     return response.send({ message: `The Text with title: ${deleted.title} and id: ${deleted.id} was successfully deleted!` })
   } catch (error) {
     return response.status(404).send({ error: `There are no Text with the given id: ${id}` })
+  }
+})
+
+app.get('/texts-random', async (request, response) => {
+  try {
+    let allTexts = await Text.find()
+    let randomText = allTexts[Math.floor(Math.random() * allTexts.length)];
+    return response.send(randomText)
+  } catch (error) {
+    return response.send({ error: `An error occurred: ${error}` })
+  }
+})
+
+app.post('/mail', async (request, response) => {
+  let emailInformation = request.body
+  const msg = {
+    to: emailInformation.to,
+    from: 'you-email@gmail.com',
+    templateId: 'd-aaaabbbbcccddddeeee',
+    dynamic_template_data: {
+      receiverName: emailInformation.receiverName,
+      resultValue: emailInformation.resultValue
+    },
+  };
+  try {
+    await sgMail.send(msg);
+    return response.send({ message: 'Email send!' })
+  } catch (error) {
+    return response.send({ error: `An error occurred: ${error}` })
   }
 })
 
