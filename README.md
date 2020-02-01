@@ -882,8 +882,8 @@ app.use(cors({ origin: 'http://localhost:8080' })) // 1.
 
 app.use(express.json()) // 1.
 
-app.use('/', textsRoute) // 3.
-app.use('/', emailsRoute) // 3.
+app.use(textsRoute) // 3.
+app.use(emailsRoute) // 3.
 
 app.listen(port, () => {
   console.log(`Server is ON and running on port ${port}`) // 1.
