@@ -2,8 +2,8 @@
 
 | Summary                                                               |
 | -                                                                     |
-| [Creating the basic API file](#Creating-the-basic-API-file)       | 
-| [Creating routes](#Creating-routes)                               |
+| [Creating the basic API file](#Creating-the-basic-API-file)           | 
+| [Creating routes](#Creating-routes)                                   |
 | [Creating a GET route](#Creating-a-GET-route)                         |
 | [Organizing our files and project](#Organizing-our-files-and-project) |
 | [Creating a real GET route](#Creating-a-real-GET-route)               |
