@@ -1,5 +1,4 @@
-
-## :pencil: **Summary**
+# :pencil: **Summary**
 
 |Sumary                                                                                     | Introduction                                                     | Database                                                                                     | 
 |-                                                                                          |-                                                                 | -                                                                                            | 
@@ -889,7 +888,10 @@ app.listen(port, () => {
   console.log(`Server is ON and running on port ${port}`) // 1.
 })
 ```
+
 > 1. Exacly the same as before.
 > 2. We are importing the files that we created and saving them into `textsRoute` and `emailsRoute`. The content of these files is the `router object` that we exported with all our endpoints. Now, we just need to tell our `app` to use them.
-> 3. As said, **before** we were registering the routes directly in the `app` variable. **Now**, to be more organized, we created separetd files, each one has their related routes/endpoints. We are importing them into the variables, and now we are registering those objects instead of each individual route in the `app` variable.   
+> 3. As said, **before** we were registering the routes directly in the `app` variable. **Now**, to be more organized, we created separetd files, each one has their related routes/endpoints. We are importing them into the variables, and now we are registering those objects instead of each individual route in the `app` variable.
 > This is jsut a good practice and a way of organizing files, the advantage is that everytime we need to change something related to `Text`s, we just go to that file and do what we need. This is easier than having a `index.js` with multiple lines and different endpoints together.  
+
+## Using environment variables
