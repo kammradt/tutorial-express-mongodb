@@ -1,15 +1,15 @@
 const express = require('express')
 const sgMail = require('@sendgrid/mail');
 
-const router = express.Router()
+sgMail.setApiKey(process.env.SENDGRID_TOKEN);
 
-sgMail.setApiKey('your-api-generated-key');
+const router = express.Router()
 
 router.post('/mail', async (request, response) => {
   let emailInformation = request.body
   const msg = {
     to: emailInformation.to,
-    from: 'you-email@gmail.com',
+    from: 'your-email@gmail.com',
     templateId: 'd-aaaabbbbcccddddeeee',
     dynamic_template_data: {
       receiverName: emailInformation.receiverName,
