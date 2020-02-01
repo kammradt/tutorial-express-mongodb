@@ -77,7 +77,7 @@ The tutorial was divided into some sections. You can verify everything in the ta
 | [Creating custom email templates](#Creating-custom-email-templates)                |
 | [Sending custom email templates](#Sending-custom-email-templates)                  |
 | |
-| :art: Refactoring and Best practices                         |
+| :art: **Refactoring and Best practices**                         |
 | |
 | [Splitting routes](#Splitting-routes)                        |
 | [Using environment variables](#Using-environment-variables)  |
