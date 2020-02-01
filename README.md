@@ -1,4 +1,4 @@
-# :sparkles: **Welcome to our Express & MongoDB friendly tutorial! **
+# :sparkles: **Welcome to our Express & MongoDB friendly tutorial!**
 
 |Summary                                                                                    | 
 |-                                                                                          | 
