@@ -47,38 +47,38 @@ The tutorial was divided into some sections. You can verify everything in the ta
 | | 
 | :card_file_box: **Creating the Project and interacting with Database**                      | 
 | |                                                                                           |
-| [Creating a project](#creating-a-project)                                                   |
-| [Learning how to perform CRUD with Mongoose](#learning-how-to-perform-crud-with-mongoose)   | 
-| [What is **CRUD**?](#what-is-crud)                                                          |
-| [**C**reating the basic file](#creating-the-basic-file)                                     | 
-| [Adding rules to Text model](#adding-rules-to-text-model)                                   |
-| [**R**eading data](#reading-data)                                                           | 
-| [**U**pdating data](#updating-data)                                                         |
-| [**D**elete data](#delete-data)                                                             |
+| [Creating a project](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/PROJECT_DATABASE.md#creating-a-project)                                                   |
+| [Learning how to perform CRUD with Mongoose](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/PROJECT_DATABASE.md#learning-how-to-perform-crud-with-mongoose)   | 
+| [What is **CRUD**?](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/PROJECT_DATABASE.md#what-is-crud)                                                          |
+| [**C**reating the basic file](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/PROJECT_DATABASE.md#creating-the-basic-file)                                     | 
+| [Adding rules to Text model](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/PROJECT_DATABASE.md#adding-rules-to-text-model)                                   |
+| [**R**eading data](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/PROJECT_DATABASE.md#reading-data)                                                           | 
+| [**U**pdating data](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/PROJECT_DATABASE.md#updating-data)                                                         |
+| [**D**elete data](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/PROJECT_DATABASE.md#delete-data)                                                             |
 | |
 | :recycle: **Creating the CRUD**                                       |
 | |
-| [Creating the basic API file](#Creating-the-basic-API-file)           | 
-| [Creating routes](#Creating-routes)                                   |
-| [Creating a GET route](#Creating-a-GET-route)                         |
-| [Organizing our files and project](#Organizing-our-files-and-project) |
-| [Creating a real GET route](#Creating-a-real-GET-route)               |
-| [Refactoring the code](#Refactoring-the-code)                         |
-| [Route to CREATE a Text](#Route-to-CREATE-a-Text)                     |
-| [Route to GET one Text](#Route-to-GET-one-Text)                       |
-| [Route to UPDATE a Text](#Route-to-UPDATE-a-Text)                     |
-| [Route to DELETE a Text](#Route-to-DELETE-a-Text)                     |
-| [Route to GET a random Text](#Route-to-GET-a-random-Text)             |
+| [Creating the basic API file](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_CRUD.md#Creating-the-basic-API-file)           | 
+| [Creating routes](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_CRUD.md#Creating-routes)                                   |
+| [Creating a GET route](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_CRUD.md#Creating-a-GET-route)                         |
+| [Organizing our files and project](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_CRUD.md#Organizing-our-files-and-project) |
+| [Creating a real GET route](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_CRUD.md#Creating-a-real-GET-route)               |
+| [Refactoring the code](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_CRUD.md#Refactoring-the-code)                         |
+| [Route to CREATE a Text](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_CRUD.md#Route-to-CREATE-a-Text)                     |
+| [Route to GET one Text](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_CRUD.md#Route-to-GET-one-Text)                       |
+| [Route to UPDATE a Text](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_CRUD.md#Route-to-UPDATE-a-Text)                     |
+| [Route to DELETE a Text](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_CRUD.md#Route-to-DELETE-a-Text)                     |
+| [Route to GET a random Text](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_CRUD.md#Route-to-GET-a-random-Text)             |
 | | 
 | :mailbox_with_mail: **Sending emails using SendGrid**                              |
 | | 
-| [Introduction about SendGrid](#Introduction-about-SendGrid)                        |
-| [Adding SendGrid library to the project](#Adding-SendGrid-library-to-the-project)  |
-| [Creating custom email templates](#Creating-custom-email-templates)                |
-| [Sending custom email templates](#Sending-custom-email-templates)                  |
+| [Introduction about SendGrid](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_SENDING_EMAILS.md#Introduction-about-SendGrid)                        |
+| [Adding SendGrid library to the project](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_SENDING_EMAILS.md#Adding-SendGrid-library-to-the-project)  |
+| [Creating custom email templates](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_SENDING_EMAILS.md#Creating-custom-email-templates)                |
+| [Sending custom email templates](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_SENDING_EMAILS.md#Sending-custom-email-templates)                  |
 | |
 | :art: **Refactoring and Best practices**                         |
 | |
-| [Splitting routes](#Splitting-routes)                        |
-| [Using environment variables](#Using-environment-variables)  |
+| [Splitting routes](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_REFACTORING.md#Splitting-routes)                        |
+| [Using environment variables](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/API_REFACTORING.md#Using-environment-variables)  |
 | |
