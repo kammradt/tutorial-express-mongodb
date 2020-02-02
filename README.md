@@ -39,11 +39,11 @@ The tutorial was divided into some sections. You can verify everything in the ta
 
 | :speech_balloon: **Introduction**                                     |
 | -                                                                 |
-| [What is a Database?](#what-is-a-database)                        |           
-| [What is an API?](#what-is-an-api)                                |   
-| [HTTP Verbs](#http-verbs)                                         |
-| [Installing MongoDB on Ubuntu](#installing-mongodb-on-ubuntu)     | 
-| [Installing a client for Mongo](#installing-a-client-for-mongo)   | 
+| [What is a Database?](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/INTRODUCTION.md#what-is-a-database)                        |           
+| [What is an API?](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/INTRODUCTION.md#what-is-an-api)                                |   
+| [HTTP Verbs](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/INTRODUCTION.md#http-verbs)                                         |
+| [Installing MongoDB on Ubuntu](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/INTRODUCTION.md#installing-mongodb-on-ubuntu)     | 
+| [Installing a client for Mongo](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/feature/adding-authentication/NOTES/INTRODUCTION.md#installing-a-client-for-mongo)   | 
 | | 
 | :card_file_box: **Creating the Project and interacting with Database**                      | 
 | |                                                                                           |
