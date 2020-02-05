@@ -10,7 +10,6 @@ const textsRoute = require('./routes/text')
 const emailsRoute = require('./routes/email')
 const usersRoute = require('./routes/user')
 
-
 app.use(cors({ origin: 'http://localhost:8080' }))
 app.use(express.json())
 
