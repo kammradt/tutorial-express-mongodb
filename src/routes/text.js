@@ -1,9 +1,10 @@
 const express = require('express')
 const Text = require('./../db/models/text')
+const auth = require('./../middlewares/auth-middleware')
 
 const router = express.Router()
 
-router.post('/texts', async (request, response) => {
+router.post('/texts', auth, async (request, response) => {
   let newText = request.body
   try {
     let myText = new Text({
@@ -18,12 +19,12 @@ router.post('/texts', async (request, response) => {
   }
 })
 
-router.get('/texts', async (request, response) => {
+router.get('/texts', auth, async (request, response) => {
   let listOfTexts = await Text.find()
   return response.send({ text: listOfTexts })
 })
 
-router.get('/texts/:id', async (request, response) => {
+router.get('/texts/:id', auth, async (request, response) => {
   let id = request.params.id
   try {
     let foundText = await Text.findById(id)
@@ -33,7 +34,7 @@ router.get('/texts/:id', async (request, response) => {
   }
 })
 
-router.put('/texts/:id', async (request, response) => {
+router.put('/texts/:id', auth, async (request, response) => {
   let id = request.params.id
   let newTextInfo = request.body
   try {
@@ -50,7 +51,7 @@ router.put('/texts/:id', async (request, response) => {
   }
 })
 
-router.delete('/texts/:id', async (request, response) => {
+router.delete('/texts/:id', auth, async (request, response) => {
   let id = request.params.id
   try {
     let deleted = await Text.findByIdAndDelete(id)
@@ -60,7 +61,7 @@ router.delete('/texts/:id', async (request, response) => {
   }
 })
 
-router.get('/texts-random', async (request, response) => {
+router.get('/texts-random', auth, async (request, response) => {
   try {
     let allTexts = await Text.find()
     let randomText = allTexts[Math.floor(Math.random() * allTexts.length)];
