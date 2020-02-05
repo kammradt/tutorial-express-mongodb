@@ -16,6 +16,15 @@ router.post('/user/register', async (request, response) => {
   }
 })
 
+router.post('/user/login', async (request, response) => {
+  let { email, password } = request.body
+  try {
+    const user = await User.findByCredentials({ email, password })
+    return response.send({ token: user })
+  } catch (error) {
+    return response.status(400).send({ error })
   }
 })
+
+
 module.exports = router
