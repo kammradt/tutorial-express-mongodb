@@ -1,5 +1,6 @@
 const moongose = require('mongoose')
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const userSchema = new moongose.Schema({
   email: {
@@ -11,10 +12,24 @@ const userSchema = new moongose.Schema({
   password: {
     type: String,
     required: [true, 'Please, insert a password!'],
-  }
+  },
+  tokens: [{
+    token: {
+      type: String,
+      require: true
+    }
+  }]
 })
 
-userSchema.statics.findByCredentials = async ({email, password}) => {
+userSchema.methods.generateAuthToken = async function () {
+  const user = this
+  const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7 days' })
+  user.tokens = user.tokens.concat({token})
+  await user.save();
+  return token
+}
+
+userSchema.statics.findByCredentials = async ({ email, password }) => {
   let found = await User.findOne({ email })
   if (!found)
     throw new Error('User not found!')
