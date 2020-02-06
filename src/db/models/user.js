@@ -21,6 +21,12 @@ const userSchema = new moongose.Schema({
   }]
 })
 
+userSchema.virtual('texts', {
+  ref: 'Text',
+  localField: '_id',
+  foreignField: 'owner'
+})
+
 userSchema.methods.generateAuthToken = async function () {
   const user = this
   const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '7 days' })
