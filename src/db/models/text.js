@@ -14,6 +14,11 @@ const Text = moongose.model('Text', {
         type: Number,
         min: [600, 'Text size must be equal or bigger than 600'],
         max: [1000, 'Text size must be equal or less than 1000!']
+    },
+    owner: {
+        type: moongose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
     }
 })
 
