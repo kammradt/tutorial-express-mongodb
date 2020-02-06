@@ -84,7 +84,7 @@ The tutorial was divided into some sections. You can verify everything in the ta
 | |
 | :lock: **Security**               | 
 | |
-| [Introduction about security](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/master/NOTES/SECURITY/#introduction-about-security)                                 |
-| [Authentication and Authorization](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/master/NOTES/SECURITY/#authentication-and-authorization)                       |
-| [Securely encrypting data](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/master/NOTES/SECURITY/#securely-encrypting-data)                                       |
+| [Introduction about security](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/master/NOTES/SECURITY.md/#introduction-about-security)                                 |
+| [Authentication and Authorization](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/master/NOTES/SECURITY.md/#authentication-and-authorization)                       |
+| [Securely encrypting data](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/master/NOTES/SECURITY.md/#securely-encrypting-data)                                       |
 
