@@ -82,3 +82,9 @@ The tutorial was divided into some sections. You can verify everything in the ta
 | [Splitting routes](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/master/NOTES/API_REFACTORING.md#Splitting-routes)                        |
 | [Using environment variables](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/master/NOTES/API_REFACTORING.md#Using-environment-variables)  |
 | |
+| :lock: **Security**               | 
+| |
+| [Introduction about security](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/master/NOTES/SECURITY/#introduction-about-security)                                 |
+| [Authentication and Authorization](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/master/NOTES/SECURITY/#authentication-and-authorization)                       |
+| [Securely encrypting data](https://github.com/kammradt-archives/tutorial-express-mongodb/blob/master/NOTES/SECURITY/#securely-encrypting-data)                                       |
+
