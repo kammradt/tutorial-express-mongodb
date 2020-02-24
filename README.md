@@ -6,7 +6,7 @@
 | [What? *What will we build?*](#what-what-will-we-build)                                   |
 | [Why? *What is our objective?*](#why-what-is-our-objective)                               |
 | [How? *Are are the tools that we will use?*](#how-what-are-the-tools-that-we-will-use)    | 
-| [Lets start](#let's-start)
+| [Let's start](#lets-start)
 
 ## Who?
 Hi there! My name is Vinícius Kammradt, I`ve been playing with technology since 2016. I really enjoy creating new stuff and also love to spread any knowledge that I have with others.  
